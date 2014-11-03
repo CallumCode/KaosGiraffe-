@@ -34,22 +34,34 @@ public class Enemy : MonoBehaviour
 		Movement();
 	}
 
-public 	void Movement()
+	public 	void Movement()
 	{
+		if(theTransform != null && characterCont != null)
+		{
+			Vector3 targetDir = target - transform.position;
+			float step = turnSpeed * Time.deltaTime;
+			Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
+			Debug.DrawRay(transform.position, newDir, Color.blue);
 
-		Vector3 targetDir = target - transform.position;
-		float step = turnSpeed * Time.deltaTime;
-		Vector3 newDir = Vector3.RotateTowards(transform.forward, targetDir, step, 0.0F);
-		Debug.DrawRay(transform.position, newDir, Color.blue);
-		theTransform.rotation = Quaternion.LookRotation(newDir);
 
-		characterCont.Move(transform.forward*moveSpeed*Time.deltaTime);
+			theTransform.rotation = Quaternion.LookRotation(newDir);
 
+			characterCont.Move(transform.forward*moveSpeed*Time.deltaTime);
+		}
+		else
+		{
+			Debug.Log("theTransform == null || characterCont == null");
+			Debug.Break();
+
+		}
 	}
 
 
 	public void SetUp(GameObject towerObj)
 	{
+
+		theTransform = transform;
+
 		TowerObject = towerObj;
 		TowerScript = TowerObject	.GetComponent<Tower>();
 
@@ -60,7 +72,6 @@ public 	void Movement()
 
 
 		// cache it as transform acutaly is getComponet and will be called a lot
-		theTransform = transform;
 	}
 
 
