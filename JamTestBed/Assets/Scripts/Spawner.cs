@@ -6,6 +6,8 @@ public class Spawner : MonoBehaviour {
 	public GameObject EnemyPrefab;
 	public GameObject TreeManPrefab;
 
+	public GameObject SwarmPrefab;
+
 	public GameObject TowerObject;
 
 	public float spawnRate = 10;
@@ -53,9 +55,9 @@ public class Spawner : MonoBehaviour {
 		GameObject type = null;
 		float rand = Random.value;
 
-		//if (rand > 0.8) type = EnemyPrefab;
-		//else 
-		type = TreeManPrefab;
+		//if (rand > 0.2) type = EnemyPrefab;
+		//else
+			type = SwarmPrefab;
 
 		return type;
 	}

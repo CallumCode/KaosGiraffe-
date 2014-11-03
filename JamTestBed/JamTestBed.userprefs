@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Swarm.cs">
+    <Files>
+      <File FileName="Assets\Scripts\Spawner.cs" Line="56" Column="1" />
+      <File FileName="Assets\Scripts\Swarm.cs" Line="171" Column="83" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Callum\Documents\GitHub\KaosGiraffe-\JamTestBed\Assets\Scripts\Swarm.cs" line="161" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
