@@ -6,6 +6,7 @@ public class IceWall : MonoBehaviour
 	public float raiseSpeed = 1;
 	public float idleTime = 5;
 	private float idleStartTime = 0;
+
 	// Use this for initialization
 
 	public enum IceWallStageType {growing,idle, shrinking, dead};

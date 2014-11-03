@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 	private Vector3 IceWallStart;
 	private Vector3 IceWallEnd;
 	private bool IceWallStarted = false;
+	public float minWallLength = 1;
 
 
 	//
@@ -132,6 +133,11 @@ public class Player : MonoBehaviour
 		GameObject wall = Instantiate(IceWallPrefab, midPoint, Quaternion.identity) as GameObject;
 
 		wall.transform.right = dir;
+
+		if (distance < minWallLength)
+		{
+			distance = minWallLength;
+		}
 
 		wall.transform.localScale = new Vector3(distance, 1, 1);
 
