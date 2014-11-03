@@ -3,8 +3,7 @@ using System.Collections;
 
 public class Swarm : Enemy {
 
-	public	GameObject visionGameObject;
-	SwarmVision swarmVisionScript;
+ 	SwarmHead swarmVisionScript;
 
 
 	float avoidTimeTotal;
@@ -19,7 +18,7 @@ public class Swarm : Enemy {
 	// Use this for initialization
 	void Start () 
 	{
-		swarmVisionScript = visionGameObject.GetComponent<SwarmVision>();
+		swarmVisionScript = theTransform.parent.GetComponent<SwarmHead>();
 
 		turnSpeed = 0.8f;
 		moveSpeed = 10;
@@ -49,17 +48,17 @@ public class Swarm : Enemy {
 	void Flock()
 	{
 		if (swarmVisionScript == null) return;
-		if (swarmVisionScript.swarmInSight == null) return;
-		if (swarmVisionScript.swarmInSight.Count == 0) return;
+		if (swarmVisionScript.swarmList == null) return;
+		if (swarmVisionScript.swarmList.Count == 0) return;
 
 
 		Vector3 totalDir = Vector3.zero;
 		Vector3 totalPos = Vector3.zero;
 
 		// for each swarm in sight
-		for (int i = 0; i < swarmVisionScript.swarmInSight.Count; i++)
+		for (int i = 0; i < swarmVisionScript.swarmList.Count; i++)
 		{
-			GameObject obj = (GameObject)swarmVisionScript.swarmInSight[i];
+			GameObject obj = (GameObject)swarmVisionScript.swarmList[i];
 
 			totalDir += obj.transform.forward;
 			totalPos += obj.transform.position;
@@ -67,7 +66,7 @@ public class Swarm : Enemy {
 			HandleAvoid(obj);
 		}
 
-		Vector3 avgPos =  totalPos * (1 / (float) (swarmVisionScript.swarmInSight.Count));
+		Vector3 avgPos =  totalPos * (1 / (float) (swarmVisionScript.swarmList.Count));
 
 		Vector3 avgPosDir = theTransform.position-avgPos;
 		avgPosDir.Normalize();
@@ -77,7 +76,7 @@ public class Swarm : Enemy {
 
 
 
-		Vector3 avgDir = totalDir * (1 / (float) (swarmVisionScript.swarmInSight.Count));
+		Vector3 avgDir = totalDir * (1 / (float) (swarmVisionScript.swarmList.Count));
 
 		Debug.DrawRay(theTransform.position, avgDir * avgDirSpeed, Color.green);
 		characterCont.Move(avgDir * avgDirSpeed * Time.deltaTime);
