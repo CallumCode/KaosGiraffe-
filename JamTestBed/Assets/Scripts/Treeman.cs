@@ -7,8 +7,10 @@ public class Treeman : Enemy
 	// Use this for initialization
 	void Start () 
 	{
-		moveSpeed = 1;
-		
+		damage = 10;
+		attacksRate = 2;
+		moveSpeed = 1; 
+		turnSpeed = 0.5f;
 	}
 	
 	// Update is called once per frame
