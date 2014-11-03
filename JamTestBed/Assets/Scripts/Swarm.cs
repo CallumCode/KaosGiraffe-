@@ -7,14 +7,14 @@ public class Swarm : Enemy {
 	SwarmVision swarmVisionScript;
 
 
-	float avoidTimeTotal = 1f;
-	float avoidTimeStep = 0.2f;
-	float aovidSpeedMax = 100;
-	
+	float avoidTimeTotal;
+	float avoidTimeStep;
+	float aovidSpeedMax;
 
-	float avgPosSpeed = 10;
 
-	float avgDirSpeed = 1;
+	float avgPosSpeed;
+
+	float avgDirSpeed;
 
 	// Use this for initialization
 	void Start () 
@@ -26,116 +26,25 @@ public class Swarm : Enemy {
 		damage = 0.1f;
 		attacksRate = 3;
 
+		avoidTimeTotal = 0.5f;
+		avoidTimeStep = 0.1f;
+		aovidSpeedMax = 0.2f;	
+	
+		
+		avgPosSpeed = 1;
+		avgDirSpeed = 1;
+
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-		//Movement();
+		Movement();
 
-		Flock();
-
-		/*
-		LocalAvoid();
-		AvgPos();
-		AvgDir();*/
+		Flock(); 
 	}
 
-	void AvgDir()
-	{
-		if (swarmVisionScript == null) return;
-		if (swarmVisionScript.swarmInSight == null) return;
-		if (swarmVisionScript.swarmInSight.Count == 0) return;
-
-
-		Vector3 totalDir = Vector3.zero;
-
-		// for each swarm in sight
-		for (int i = 0; i < swarmVisionScript.swarmInSight.Count; i++)
-		{
-			GameObject obj = (GameObject)swarmVisionScript.swarmInSight[i];
-
-			totalDir += obj.transform.forward;
-
-		}
-
-		totalDir = totalDir * (1 / swarmVisionScript.swarmInSight.Count);
-
-		characterCont.Move(totalDir * avgDirSpeed * Time.deltaTime);
-
-		Debug.DrawRay(theTransform.position, totalDir * avgDirSpeed, Color.green);
-	}
-	void AvgPos()
-	{
-		if (swarmVisionScript == null) return;
-		if (swarmVisionScript.swarmInSight == null) return;
-		if (swarmVisionScript.swarmInSight.Count == 0) return;
-
-
-		Vector3 totalPos = Vector3.zero;
-
-		// for each swarm in sight
-		for (int i = 0; i < swarmVisionScript.swarmInSight.Count; i++)
-		{
-			GameObject obj = (GameObject)swarmVisionScript.swarmInSight[i];
-
-			totalPos += obj.transform.position;	
-				
-		}
-
-		totalPos = totalPos * (1 / swarmVisionScript.swarmInSight.Count);
-
-		Vector3 dir = totalPos - theTransform.position;
-		dir.Normalize();
-		characterCont.Move(dir * avgPosSpeed* Time.deltaTime);
-
-		Debug.DrawRay(theTransform.position, dir * avgPosSpeed, Color.grey);
-
-	}
-	void LocalAvoid()
-	{
-		if (swarmVisionScript == null) return;
-		if (swarmVisionScript.swarmInSight == null) return;
-
-
-	
-		// for each swarm in sight
-		for (int i = 0; i < swarmVisionScript.swarmInSight.Count; i++)
-		{
-			GameObject obj = (GameObject)swarmVisionScript.swarmInSight[i];
-			
-			Vector3 thisPos = theTransform.position;
-			Vector3 otherPos = obj.transform.position;
-			// predict collision
-			for (float k = 0; k < avoidTimeTotal; k += avoidTimeStep)
-			{
-				// we use same moveSpeed as they are same type of enemy;
-				thisPos = theTransform.position + theTransform.forward * k *moveSpeed; 
-				otherPos = obj.transform.position + obj.transform.forward *k* moveSpeed;
-
-				if ((theTransform.localScale.x) > Vector3.Distance(thisPos, otherPos))
-				{
-					// colision is predicted
-
-					Vector3 dir = thisPos - otherPos;
-					dir.Normalize();
-
-					// lerp means will have a max avoid speed when the colission is least num of steps
-					float t = k / avoidTimeTotal;
-					t = Mathf.Clamp01(t);
-
- 					float speed = Mathf.Lerp(aovidSpeedMax, 0, t);
-
-					Debug.DrawRay(theTransform.position, dir * speed, Color.red);
-
-					characterCont.Move(dir * speed * Time.deltaTime);
-
-				}
-					
-			}
-			
-		}
-	}
+  
 
 	void Flock()
 	{
