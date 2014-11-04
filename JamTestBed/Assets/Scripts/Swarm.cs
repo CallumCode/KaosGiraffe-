@@ -80,6 +80,7 @@ public class Swarm : Enemy {
 
 		Debug.DrawLine(theTransform.position, avgPos, Color.magenta);
 
+		
 		float t = Vector3.Distance(theTransform.position , avgPos ) / maxDist;
 		t = Mathf.Clamp01(t);
 
