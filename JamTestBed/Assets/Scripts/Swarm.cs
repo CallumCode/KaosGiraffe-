@@ -91,7 +91,7 @@ public class Swarm : Enemy {
 		t = Vector3.Dot(avgDir, transform.forward);
 		t = Mathf.Abs(t);
 		t = Mathf.Clamp01(t);
-
+		 
 		float avgDirSpeed = Mathf.Lerp(0,avgDirSpeedMax,t);
 
 		Debug.DrawRay(theTransform.position, avgDir * avgDirSpeed, Color.green);
