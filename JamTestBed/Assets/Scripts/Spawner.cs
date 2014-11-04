@@ -6,7 +6,7 @@ public class Spawner : MonoBehaviour {
 	public GameObject EnemyPrefab;
 	public GameObject TreeManPrefab;
 
-	public GameObject SwarmPrefab;
+	public GameObject SwarmHeadPrefab;
 
 	public GameObject TowerObject;
 
@@ -39,9 +39,10 @@ public class Spawner : MonoBehaviour {
 
 
 
-				GameObject type = null;
+		GameObject type = null;
 		float rand = Random.value;
-
+		SpawnSwarmHead();
+	/*
 			if (rand > 0.5)
 			{
 				SpawnEnenmy();
@@ -55,6 +56,7 @@ public class Spawner : MonoBehaviour {
 			{
 				SpawnTreeMan();
 			}
+	 */
  		
 		}
 	}
@@ -80,20 +82,15 @@ public class Spawner : MonoBehaviour {
 	}
 
 
-	void  SpawnSwarm()
+	void  SpawnSwarmHead()
 	{ 
-			Vector3 pos = PointOnCircle(radius, Random.Range(0,360), TowerObject.transform.position);
+		Vector3 pos = PointOnCircle(radius, Random.Range(0,360), TowerObject.transform.position);
 
-			pos = new Vector3(pos.x, SwarmPrefab.transform.localScale.y , pos.z);
-
-		const int num = 5;
-		for (int i = 0; i < num; i ++ )
-		{
-			GameObject enemy = Instantiate(SwarmPrefab, pos  + transform.right*i , Quaternion.identity) as GameObject;
-			enemy.GetComponent<Enemy>().SetUp(TowerObject);
-			enemy.transform.parent = transform;
-
-		}
+		pos = new Vector3(pos.x, SwarmHeadPrefab.transform.localScale.y , pos.z);
+			 
+		GameObject head = Instantiate(SwarmHeadPrefab, pos , Quaternion.identity) as GameObject;
+		head.GetComponent<SwarmHead>().SetUp(TowerObject);
+		head.transform.parent = transform; 
 		
 	}
 	 
