@@ -64,7 +64,7 @@ public class IceWall : MonoBehaviour
 	{
 		transform.Translate(Vector3.up * raiseSpeed * Time.deltaTime);
 	
-		if (transform.position.y > (transform.localScale.y*0.5))
+		if (transform.position.y > (transform.localScale.y * 0.5f))
 		{
 			iceWallStage = IceWallStageType.idle;
 			idleStartTime = Time.time;
@@ -75,7 +75,7 @@ public class IceWall : MonoBehaviour
 	{
 		transform.Translate(-Vector3.up * raiseSpeed * Time.deltaTime);
 
-		if (transform.position.y < (-transform.localScale.y * 0.5))
+		if (transform.position.y < (-transform.localScale.y * 0.5f ))
 		{
 			iceWallStage = IceWallStageType.dead;			
 		}

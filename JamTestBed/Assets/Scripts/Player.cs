@@ -120,15 +120,12 @@ public class Player : MonoBehaviour
 		IceWallEnd  = new Vector3(IceWallEnd.x, -0.9f, IceWallEnd.z);
 		IceWallStart = new Vector3(IceWallStart.x, -0.9f, IceWallStart.z);
 
-
-
 		Vector3 midPoint = IceWallStart + (IceWallEnd - IceWallStart) * 0.5f;
 
 		Vector3 dir = (IceWallEnd - IceWallStart);
 		dir.Normalize();
 
 		float distance = Vector3.Distance(IceWallEnd, IceWallStart);
-
 
 		GameObject wall = Instantiate(IceWallPrefab, midPoint, Quaternion.identity) as GameObject;
 
@@ -139,7 +136,7 @@ public class Player : MonoBehaviour
 			distance = minWallLength;
 		}
 
-		wall.transform.localScale = new Vector3(distance, 1, 1);
+		wall.transform.localScale = new Vector3(distance, IceWallPrefab.transform.localScale.y, IceWallPrefab.transform.localScale.z);
 
 	}
 
