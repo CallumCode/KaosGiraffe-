@@ -90,7 +90,8 @@ public 	void Movement()
 
 				TakeDamage(shield.reboundDamage);
  			}
-		} 
+		}
+ 
 	}
 
 

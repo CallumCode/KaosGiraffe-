@@ -40,12 +40,14 @@ public class Spawner : MonoBehaviour {
 
 
  		float rand = Random.value;
- 
+ /*
 			if (rand > 0.5)
 			{
 				SpawnEnenmy();
 			}
-			else if (rand > 0.2)
+			else */
+			
+			if (rand > 0.5)
 			{
 				SpawnSwarmHead();
 			}

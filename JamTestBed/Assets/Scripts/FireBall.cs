@@ -3,11 +3,9 @@ using System.Collections;
 
 public class FireBall : MonoBehaviour {
 
-	//public GameObject FirePrefab;
+	float damageMassScaler = 20;
+	float damageVelScaler = 10;
 
-	//public float maxFireRate = 5;
-//	private float fireTimer = 0;
-	// Use this for initialization
 	void Start () 
 	{
 	
@@ -18,29 +16,21 @@ public class FireBall : MonoBehaviour {
 	{
 		
 	}
-/*
+
+
 	void OnCollisionStay(Collision collision)
 	{
-		if (Time.time > (fireTimer + 1 / maxFireRate) && FirePrefab != null)
+ 
+		if (collision.collider.CompareTag("Enemy")
+			|| collision.collider.CompareTag("TreeMan")
+			|| collision.collider.CompareTag("Swarm"))
 		{
-			fireTimer = Time.time;
-			foreach (ContactPoint contact in collision.contacts)
-			{
-				Vector3 pos = contact.point;
-				Quaternion rot = Quaternion.FromToRotation(Vector3.right, contact.normal);
-				GameObject fire = Instantiate(FirePrefab, pos, rot) as GameObject;
 
-				ParticleSystem pSystem = fire.GetComponent<ParticleSystem>();
-				pSystem.startSize = transform.localScale.x * 0.5f;
-				pSystem.startLifetime = transform.localScale.x * 2;
-				pSystem.startSpeed = transform.localScale.x * 2;
-				SerializedObject so = new SerializedObject(pSystem);
-				so.FindProperty("ShapeModule.radius").floatValue = transform.localScale.x*0.5f;
-				
+			float damage = damageMassScaler * rigidbody.mass;
+			damage += damageVelScaler * rigidbody.velocity.magnitude;
 
-				so.ApplyModifiedProperties();
-
- 			}
+			collision.gameObject.GetComponent<Enemy>().TakeDamage(damage);
+			Debug.Log("fire ball  " + collision.collider.tag + " " + damage );
 		}
-	}*/
+	}
 }
