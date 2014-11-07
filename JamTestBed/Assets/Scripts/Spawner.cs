@@ -39,8 +39,7 @@ public class Spawner : MonoBehaviour {
 
 
 
-		GameObject type = null;
-		float rand = Random.value;
+ 		float rand = Random.value;
  
 			if (rand > 0.5)
 			{

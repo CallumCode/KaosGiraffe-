@@ -85,7 +85,7 @@ public class Swarm : Enemy {
 		t = Mathf.Clamp01(t);
 
 		float avgPosSpeed = Mathf.Lerp(0, avgPosSpeedMax,t);
-		characterCont.Move(avgPosDir * avgPosSpeedMax * Time.deltaTime);
+		characterCont.Move(avgPosDir * avgPosSpeed * Time.deltaTime);
 
 
 		Vector3 avgDir = totalDir * (1 / (float) (swarmHeadScript.swarmList.Count));
@@ -129,6 +129,10 @@ public class Swarm : Enemy {
 				Debug.DrawRay(theTransform.position, dir * speed, Color.red);
 
 				characterCont.Move(dir * speed * Time.deltaTime);
+
+
+				// exit early as only want to add one avoid per collision 
+				return;
 
 			}
 

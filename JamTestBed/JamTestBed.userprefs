@@ -1,10 +1,9 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Swarm.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Shaders\Shield.shader">
     <Files>
-      <File FileName="Assets\Scripts\Swarm.cs" Line="105" Column="1" />
-      <File FileName="Assets\Scripts\Spawner.cs" Line="1" Column="1" />
-      <File FileName="Assets\Scripts\SwarmHead.cs" Line="1" Column="1" />
+      <File FileName="Assets\Shaders\Shield.shader" Line="63" Column="41" />
+      <File FileName="Assets\Scripts\Shield.cs" Line="45" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
