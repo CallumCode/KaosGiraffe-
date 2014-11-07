@@ -11,6 +11,7 @@ public class Treeman : Enemy
 		attacksRate = 2;
 		moveSpeed = 1; 
 		turnSpeed = 0.5f;
+		armourScaler = 0.1f;
 	}
 	
 	// Update is called once per frame

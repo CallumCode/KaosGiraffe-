@@ -17,23 +17,7 @@ public class Tower : MonoBehaviour {
 	
 	}
 
-	public void TakeDamage(float amount)
-	{
-		health -= amount;
+	
 
-		health = Mathf.Clamp(health, 0, 100);
-
-		if(health <= 0)
-		{
-			LoseGame();
-		}
-
-	}
-
-
-	void LoseGame()
-	{
-		Debug.Log("GameLost");
-		Debug.Break();
-	}
+ 
 }

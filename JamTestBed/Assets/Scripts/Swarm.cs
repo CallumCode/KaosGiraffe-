@@ -40,6 +40,8 @@ public class Swarm : Enemy {
 
 		radiusScaler = 2.0f;
 
+		armourScaler = 0.5f;
+
 	}
 	
 	// Update is called once per frame
@@ -65,12 +67,19 @@ public class Swarm : Enemy {
 		// for each swarm in sight
 		for (int i = 0; i < swarmHeadScript.swarmList.Count; i++)
 		{
+
 			GameObject obj = (GameObject)swarmHeadScript.swarmList[i];
+			if (obj != null)
+			{
+				totalDir += obj.transform.forward;
+				totalPos += obj.transform.position;
 
-			totalDir += obj.transform.forward;
-			totalPos += obj.transform.position;
-
-			HandleAvoid(obj);
+				HandleAvoid(obj);
+			}
+			else
+			{
+				swarmHeadScript.swarmList.RemoveAt(i);
+			}
 		}
 
 		Vector3 avgPos =  totalPos * (1 / (float) (swarmHeadScript.swarmList.Count));

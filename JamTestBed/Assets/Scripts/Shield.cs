@@ -4,8 +4,10 @@ using System.Collections;
 public class Shield : MonoBehaviour 
 {
 	private float shieldAplha = 0;
-	public float shieldAplhaRate = 1; 
+	public float shieldAplhaRate = 1;
 
+	public float reboundDamage = 50;
+	public float health = 100;
 	// Use this for initialization
 	void Start () 
 	{
@@ -21,12 +23,12 @@ public class Shield : MonoBehaviour
 		renderer.material.SetFloat("_shieldAplha", shieldAplha);
 	}
 
-	void ShieldHit(ContactPoint contact)
+	void ShieldHit(Vector3 contactPoint)
 	{ 
  		shieldAplha = 1;
 		renderer.material.SetFloat("_diameter", transform.localScale.x * 2);
 
-		Vector4 localPoint = transform.InverseTransformPoint(contact.point);
+		Vector4 localPoint = transform.InverseTransformPoint(contactPoint);
 
 		localPoint.Scale(transform.localScale);
 		localPoint.w = 1;
@@ -44,8 +46,24 @@ public class Shield : MonoBehaviour
 	 
 				Debug.Log("HIT");
 
-				ShieldHit(contact);
+				ShieldHit(contact.point);
  
 		}
+	}
+
+	public void TakeDamage(float amount, Vector3 contactPoint)
+	{
+
+		ShieldHit(contactPoint);
+
+		health -= amount;
+
+		health = Mathf.Clamp(health, 0, 100);
+
+		if (health <= 0)
+		{
+			collider.enabled = false;
+ 		}
+
 	}
 }

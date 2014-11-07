@@ -19,6 +19,8 @@ public class Enemy : MonoBehaviour
 
 	protected Transform theTransform;
 
+	protected float armourScaler;
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -26,6 +28,7 @@ public class Enemy : MonoBehaviour
 		attacksRate = 2;
 		moveSpeed = 10;
 		turnSpeed = 1;
+		armourScaler = 1;
 	}
 	
 	// Update is called once per frame
@@ -66,17 +69,48 @@ public 	void Movement()
 
 	void OnControllerColliderHit(ControllerColliderHit collisionInfo)
 	{
- 
 
-		if(collisionInfo.collider.CompareTag("Tower"))
+
+		if (collisionInfo.collider.CompareTag("Tower"))
 		{
- 
+
+			// Game is lost 
+			Application.LoadLevel(Application.loadedLevel);
+		}
+
+
+
+		if(collisionInfo.collider.CompareTag("Shield"))
+		{ 
 			if(Time.time > (attackTimer + 1 / attacksRate) )
 			{
 				attackTimer = Time.time;
-				TowerScript.TakeDamage(damage);
-			}
+				Shield shield = collisionInfo.gameObject.GetComponent<Shield>();
+				shield.TakeDamage(damage, collisionInfo.point);
+
+				TakeDamage(shield.reboundDamage);
+ 			}
 		} 
+	}
+
+
+	public void TakeDamage(float amount)
+	{
+		health -= amount * armourScaler;
+
+		health = Mathf.Clamp(health, 0, 100);
+
+		if (health <= 0)
+		{
+			Death();
+		}
+
+	}
+
+
+	void Death()
+	{
+		Destroy(gameObject);
 	}
 
 }
