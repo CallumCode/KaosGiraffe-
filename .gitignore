@@ -20,3 +20,5 @@ JamTestBed/JamTestBed-csharp.sln
 JamTestBed/JamTestBed.sln
 JamTestBed/JamTestBed.userprefs
 JamTestBed/JamTestBed.sln
+*.csproj
+*.csproj
