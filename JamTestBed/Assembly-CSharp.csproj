@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scripts\FireBall.cs" />
      <Compile Include="Assets\Scripts\IceWall.cs" />
      <Compile Include="Assets\Scripts\Lightning.cs" />
+     <Compile Include="Assets\Scripts\LightningStrike.cs" />
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Shield.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />

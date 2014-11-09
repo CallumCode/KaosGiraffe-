@@ -5,6 +5,8 @@ public class Lightning : MonoBehaviour
 {
 
 	public GameObject CloudPrefab = null;
+	public GameObject StrikePrefab = null;
+
 
 	enum LightningStageType { growing, striking, shrinking, dead };
 	LightningStageType lightningStage = LightningStageType.growing;
@@ -22,7 +24,34 @@ public class Lightning : MonoBehaviour
 	public float maxSubCloudShrink = 0.75f;
 	
 	public float flatenScaler = 0.75f;
-	 
+
+	public Shader CloudShader;
+	private Material cloudMat;
+
+	public Color cloudStart = Color.white;
+	public Color cloudEnd = Color.black;
+
+	private float cloudStartTime = 0;
+	public float  maxGrowingTime = 0;
+
+	private float growingTimer = 0;
+	public float growTickRate = 5;
+
+	public float upSpeed = 1;
+
+	private Vector3 startingScale;
+
+
+	public float maxCoudScale = 10;
+
+	private GameObject cloudContainter;
+
+
+	public float rangeStrikeScaler = 1;
+
+
+	public int  maxStrikes = 5;
+	private float sizeMod = 0;
 
 	// Use this for initialization
 	void Start()
@@ -64,31 +93,54 @@ public class Lightning : MonoBehaviour
 	void GrowingUpdate()
 	{
 
+		  sizeMod = (Time.time  -  cloudStartTime ) /  maxGrowingTime ;
+		sizeMod = Mathf.Clamp01(sizeMod);
+
+		cloudMat.color = Color.Lerp(cloudStart, cloudEnd , sizeMod);
+
+		transform.Translate(Vector3.up*Time.deltaTime * upSpeed);
+
+		if (Time.time > (growingTimer + 1 / growTickRate))
+		{
+			transform.localScale = startingScale + startingScale * maxCoudScale * sizeMod;
+			
+		}
+
+
+
 	}
 
 
 	void CreateClouds()
 	{
-
 		if (CloudPrefab != null) 
 		{
+
+			cloudContainter = new GameObject();
+			cloudContainter.name = "cloudContainter";
+			cloudContainter.transform.parent = transform;
+
+
+			cloudMat = new Material(CloudShader);
+			cloudMat.color = cloudStart;
+		
 			float numParentCloud = Random.Range(minFirstSubClouds ,maxFirstSubClouds);
 			for (float parentCloud = 0; parentCloud < numParentCloud; parentCloud++)
 			{
 				GameObject cloud = Instantiate(CloudPrefab, transform.position, transform.rotation) as GameObject;
-				cloud.transform.parent = transform;
+				cloud.transform.parent = cloudContainter.transform;
 				cloud.transform.localScale *= firstRadius;
+				cloud.renderer.material = cloudMat;
 
 				AddSubClouds(cloud.transform.position, firstRadius, Random.Range(minSubCloudDepth,maxSubCloudDepth));
 
 			}
 
+			cloudStartTime = Time.time;
+			startingScale = transform.localScale;
 		}
  
 	}
-
-
-
 
 	void AddSubClouds(Vector3 parentPos, float parentRadius, float deapth)
 	{
@@ -105,8 +157,9 @@ public class Lightning : MonoBehaviour
 
 			GameObject cloud = Instantiate(CloudPrefab, pos, transform.rotation) as GameObject;
 
-			cloud.transform.parent = transform;
+			cloud.transform.parent = cloudContainter.transform;
 			cloud.transform.localScale *= Mathf.Clamp(newRadius, 0.01f , firstRadius);
+			cloud.renderer.material = cloudMat;
 
 			AddSubClouds(pos, newRadius, deapth);
 		}
@@ -115,5 +168,14 @@ public class Lightning : MonoBehaviour
 	public void FinishGrowing()
 	{
 		lightningStage = LightningStageType.striking;
-	}
+
+		for (int i = 0; i < (maxStrikes * sizeMod); i++)
+		{
+			Vector2 pos = Random.insideUnitCircle * transform.localScale.x * rangeStrikeScaler;
+			GameObject strike = Instantiate(StrikePrefab, transform.position + new Vector3(pos.x, 0, pos.y), transform.rotation) as GameObject;
+			strike.transform.parent = transform;
+		}
+
+ 	}
+ 
 }
