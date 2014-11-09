@@ -1,0 +1,893 @@
+fileFormatVersion: 2
+guid: ec6352b5c55ec1a43bd54c78e861842d
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: group_0
+    100002: group_1
+    100004: group_10
+    100006: group_11
+    100008: group_2
+    100010: group_2 1
+    100012: group_3
+    100014: group_3 1
+    100016: group_3 2
+    100018: group_3 3
+    100020: group_4
+    100022: group_4 1
+    100024: group_4 1_MeshPart0
+    100026: group_4 1_MeshPart1
+    100028: group_4 2
+    100030: group_4 2_MeshPart0
+    100032: group_4 2_MeshPart1
+    100034: group_4 3
+    100036: group_4 3_MeshPart0
+    100038: group_4 3_MeshPart1
+    100040: group_4 4
+    100042: group_4 4_MeshPart0
+    100044: group_4 4_MeshPart1
+    100046: group_4 5
+    100048: group_4 5_MeshPart0
+    100050: group_4 5_MeshPart1
+    100052: group_4 6
+    100054: group_4 6_MeshPart0
+    100056: group_4 6_MeshPart1
+    100058: group_4 7
+    100060: group_4 7_MeshPart0
+    100062: group_4 7_MeshPart1
+    100064: group_4_MeshPart0
+    100066: group_4_MeshPart1
+    100068: group_5
+    100070: group_5 1
+    100072: group_5 1_MeshPart0
+    100074: group_5 1_MeshPart1
+    100076: group_5 2
+    100078: group_5 2_MeshPart0
+    100080: group_5 2_MeshPart1
+    100082: group_5 3
+    100084: group_5 3_MeshPart0
+    100086: group_5 3_MeshPart1
+    100088: group_5 4
+    100090: group_5 4_MeshPart0
+    100092: group_5 4_MeshPart1
+    100094: group_5 5
+    100096: group_5 5_MeshPart0
+    100098: group_5 5_MeshPart1
+    100100: group_5 6
+    100102: group_5 6_MeshPart0
+    100104: group_5 6_MeshPart1
+    100106: group_5 7
+    100108: group_5 7_MeshPart0
+    100110: group_5 7_MeshPart1
+    100112: group_5_MeshPart0
+    100114: group_5_MeshPart1
+    100116: group_6
+    100118: group_6 1
+    100120: group_6 2
+    100122: group_6 3
+    100124: group_7
+    100126: group_7 1
+    100128: group_8
+    100130: group_9
+    100132: ID101
+    100134: ID105
+    100136: ID109
+    100138: ID122
+    100140: ID126
+    100142: ID130
+    100144: ID134
+    100146: ID138
+    100148: ID142
+    100150: ID157
+    100152: ID161
+    100154: ID165
+    100156: ID169
+    100158: ID173
+    100160: ID177
+    100162: ID190
+    100164: ID194
+    100166: ID198
+    100168: ID20
+    100170: ID202
+    100172: ID206
+    100174: ID210
+    100176: ID224
+    100178: ID228
+    100180: ID232
+    100182: ID236
+    100184: ID240
+    100186: ID244
+    100188: ID257
+    100190: ID26
+    100192: ID261
+    100194: ID265
+    100196: ID269
+    100198: ID273
+    100200: ID277
+    100202: ID293
+    100204: ID297
+    100206: ID30
+    100208: ID301
+    100210: ID305
+    100212: ID309
+    100214: ID313
+    100216: ID326
+    100218: ID330
+    100220: ID334
+    100222: ID338
+    100224: ID34
+    100226: ID342
+    100228: ID346
+    100230: ID360
+    100232: ID364
+    100234: ID368
+    100236: ID372
+    100238: ID376
+    100240: ID38
+    100242: ID380
+    100244: ID393
+    100246: ID397
+    100248: ID401
+    100250: ID405
+    100252: ID409
+    100254: ID413
+    100256: ID42
+    100258: ID428
+    100260: ID432
+    100262: ID436
+    100264: ID440
+    100266: ID444
+    100268: ID448
+    100270: ID461
+    100272: ID465
+    100274: ID469
+    100276: ID473
+    100278: ID477
+    100280: ID481
+    100282: ID495
+    100284: ID499
+    100286: ID503
+    100288: ID507
+    100290: ID511
+    100292: ID515
+    100294: ID528
+    100296: ID532
+    100298: ID536
+    100300: ID540
+    100302: ID544
+    100304: ID548
+    100306: ID55
+    100308: ID566
+    100310: ID59
+    100312: ID590
+    100314: ID607
+    100316: ID615
+    100318: ID623
+    100320: ID63
+    100322: ID631
+    100324: ID639
+    100326: ID647
+    100328: ID655
+    100330: ID663
+    100332: ID67
+    100334: ID671
+    100336: ID679
+    100338: ID687
+    100340: ID695
+    100342: ID703
+    100344: ID71
+    100346: ID711
+    100348: ID719
+    100350: ID727
+    100352: ID735
+    100354: ID743
+    100356: ID75
+    100358: ID751
+    100360: ID757
+    100362: ID763
+    100364: ID769
+    100366: ID775
+    100368: ID781
+    100370: ID787
+    100372: ID793
+    100374: ID799
+    100376: ID807
+    100378: ID813
+    100380: ID821
+    100382: ID827
+    100384: ID840
+    100386: ID846
+    100388: ID852
+    100390: ID860
+    100392: ID868
+    100394: ID881
+    100396: ID889
+    100398: ID89
+    100400: ID895
+    100402: ID901
+    100404: ID907
+    100406: ID93
+    100408: ID97
+    100410: //RootNode
+    100412: ID575
+    100414: ID598
+    100416: ID606
+    100418: ID627
+    100420: ID635
+    100422: ID643
+    100424: ID651
+    100426: ID659
+    100428: ID667
+    100430: ID675
+    100432: ID683
+    100434: ID691
+    100436: ID699
+    100438: ID707
+    100440: ID715
+    100442: ID723
+    100444: ID731
+    100446: ID739
+    100448: ID747
+    100450: ID755
+    100452: ID771
+    100454: ID777
+    100456: ID783
+    100458: ID789
+    100460: ID795
+    100462: ID801
+    100464: ID819
+    100466: ID833
+    100468: ID841
+    100470: ID847
+    100472: ID866
+    100474: ID872
+    100476: ID880
+    100478: ID888
+    100480: ID909
+    100482: ID915
+    100484: ID921
+    100486: ID927
+    400000: group_0
+    400002: group_1
+    400004: group_10
+    400006: group_11
+    400008: group_2
+    400010: group_2 1
+    400012: group_3
+    400014: group_3 1
+    400016: group_3 2
+    400018: group_3 3
+    400020: group_4
+    400022: group_4 1
+    400024: group_4 1_MeshPart0
+    400026: group_4 1_MeshPart1
+    400028: group_4 2
+    400030: group_4 2_MeshPart0
+    400032: group_4 2_MeshPart1
+    400034: group_4 3
+    400036: group_4 3_MeshPart0
+    400038: group_4 3_MeshPart1
+    400040: group_4 4
+    400042: group_4 4_MeshPart0
+    400044: group_4 4_MeshPart1
+    400046: group_4 5
+    400048: group_4 5_MeshPart0
+    400050: group_4 5_MeshPart1
+    400052: group_4 6
+    400054: group_4 6_MeshPart0
+    400056: group_4 6_MeshPart1
+    400058: group_4 7
+    400060: group_4 7_MeshPart0
+    400062: group_4 7_MeshPart1
+    400064: group_4_MeshPart0
+    400066: group_4_MeshPart1
+    400068: group_5
+    400070: group_5 1
+    400072: group_5 1_MeshPart0
+    400074: group_5 1_MeshPart1
+    400076: group_5 2
+    400078: group_5 2_MeshPart0
+    400080: group_5 2_MeshPart1
+    400082: group_5 3
+    400084: group_5 3_MeshPart0
+    400086: group_5 3_MeshPart1
+    400088: group_5 4
+    400090: group_5 4_MeshPart0
+    400092: group_5 4_MeshPart1
+    400094: group_5 5
+    400096: group_5 5_MeshPart0
+    400098: group_5 5_MeshPart1
+    400100: group_5 6
+    400102: group_5 6_MeshPart0
+    400104: group_5 6_MeshPart1
+    400106: group_5 7
+    400108: group_5 7_MeshPart0
+    400110: group_5 7_MeshPart1
+    400112: group_5_MeshPart0
+    400114: group_5_MeshPart1
+    400116: group_6
+    400118: group_6 1
+    400120: group_6 2
+    400122: group_6 3
+    400124: group_7
+    400126: group_7 1
+    400128: group_8
+    400130: group_9
+    400132: ID101
+    400134: ID105
+    400136: ID109
+    400138: ID122
+    400140: ID126
+    400142: ID130
+    400144: ID134
+    400146: ID138
+    400148: ID142
+    400150: ID157
+    400152: ID161
+    400154: ID165
+    400156: ID169
+    400158: ID173
+    400160: ID177
+    400162: ID190
+    400164: ID194
+    400166: ID198
+    400168: ID20
+    400170: ID202
+    400172: ID206
+    400174: ID210
+    400176: ID224
+    400178: ID228
+    400180: ID232
+    400182: ID236
+    400184: ID240
+    400186: ID244
+    400188: ID257
+    400190: ID26
+    400192: ID261
+    400194: ID265
+    400196: ID269
+    400198: ID273
+    400200: ID277
+    400202: ID293
+    400204: ID297
+    400206: ID30
+    400208: ID301
+    400210: ID305
+    400212: ID309
+    400214: ID313
+    400216: ID326
+    400218: ID330
+    400220: ID334
+    400222: ID338
+    400224: ID34
+    400226: ID342
+    400228: ID346
+    400230: ID360
+    400232: ID364
+    400234: ID368
+    400236: ID372
+    400238: ID376
+    400240: ID38
+    400242: ID380
+    400244: ID393
+    400246: ID397
+    400248: ID401
+    400250: ID405
+    400252: ID409
+    400254: ID413
+    400256: ID42
+    400258: ID428
+    400260: ID432
+    400262: ID436
+    400264: ID440
+    400266: ID444
+    400268: ID448
+    400270: ID461
+    400272: ID465
+    400274: ID469
+    400276: ID473
+    400278: ID477
+    400280: ID481
+    400282: ID495
+    400284: ID499
+    400286: ID503
+    400288: ID507
+    400290: ID511
+    400292: ID515
+    400294: ID528
+    400296: ID532
+    400298: ID536
+    400300: ID540
+    400302: ID544
+    400304: ID548
+    400306: ID55
+    400308: ID566
+    400310: ID59
+    400312: ID590
+    400314: ID607
+    400316: ID615
+    400318: ID623
+    400320: ID63
+    400322: ID631
+    400324: ID639
+    400326: ID647
+    400328: ID655
+    400330: ID663
+    400332: ID67
+    400334: ID671
+    400336: ID679
+    400338: ID687
+    400340: ID695
+    400342: ID703
+    400344: ID71
+    400346: ID711
+    400348: ID719
+    400350: ID727
+    400352: ID735
+    400354: ID743
+    400356: ID75
+    400358: ID751
+    400360: ID757
+    400362: ID763
+    400364: ID769
+    400366: ID775
+    400368: ID781
+    400370: ID787
+    400372: ID793
+    400374: ID799
+    400376: ID807
+    400378: ID813
+    400380: ID821
+    400382: ID827
+    400384: ID840
+    400386: ID846
+    400388: ID852
+    400390: ID860
+    400392: ID868
+    400394: ID881
+    400396: ID889
+    400398: ID89
+    400400: ID895
+    400402: ID901
+    400404: ID907
+    400406: ID93
+    400408: ID97
+    400410: //RootNode
+    400412: ID575
+    400414: ID598
+    400416: ID606
+    400418: ID627
+    400420: ID635
+    400422: ID643
+    400424: ID651
+    400426: ID659
+    400428: ID667
+    400430: ID675
+    400432: ID683
+    400434: ID691
+    400436: ID699
+    400438: ID707
+    400440: ID715
+    400442: ID723
+    400444: ID731
+    400446: ID739
+    400448: ID747
+    400450: ID755
+    400452: ID771
+    400454: ID777
+    400456: ID783
+    400458: ID789
+    400460: ID795
+    400462: ID801
+    400464: ID819
+    400466: ID833
+    400468: ID841
+    400470: ID847
+    400472: ID866
+    400474: ID872
+    400476: ID880
+    400478: ID888
+    400480: ID909
+    400482: ID915
+    400484: ID921
+    400486: ID927
+    2300000: group_10
+    2300002: group_11
+    2300004: group_4 1_MeshPart0
+    2300006: group_4 1_MeshPart1
+    2300008: group_4 2_MeshPart0
+    2300010: group_4 2_MeshPart1
+    2300012: group_4 3_MeshPart0
+    2300014: group_4 3_MeshPart1
+    2300016: group_4 4_MeshPart0
+    2300018: group_4 4_MeshPart1
+    2300020: group_4 5_MeshPart0
+    2300022: group_4 5_MeshPart1
+    2300024: group_4 6_MeshPart0
+    2300026: group_4 6_MeshPart1
+    2300028: group_4 7_MeshPart0
+    2300030: group_4 7_MeshPart1
+    2300032: group_4_MeshPart0
+    2300034: group_4_MeshPart1
+    2300036: group_5 1_MeshPart0
+    2300038: group_5 1_MeshPart1
+    2300040: group_5 2_MeshPart0
+    2300042: group_5 2_MeshPart1
+    2300044: group_5 3_MeshPart0
+    2300046: group_5 3_MeshPart1
+    2300048: group_5 4_MeshPart0
+    2300050: group_5 4_MeshPart1
+    2300052: group_5 5_MeshPart0
+    2300054: group_5 5_MeshPart1
+    2300056: group_5 6_MeshPart0
+    2300058: group_5 6_MeshPart1
+    2300060: group_5 7_MeshPart0
+    2300062: group_5 7_MeshPart1
+    2300064: group_5_MeshPart0
+    2300066: group_5_MeshPart1
+    2300068: group_9
+    2300070: ID607
+    2300072: ID615
+    2300074: ID623
+    2300076: ID631
+    2300078: ID639
+    2300080: ID647
+    2300082: ID655
+    2300084: ID663
+    2300086: ID671
+    2300088: ID679
+    2300090: ID687
+    2300092: ID695
+    2300094: ID703
+    2300096: ID711
+    2300098: ID719
+    2300100: ID727
+    2300102: ID735
+    2300104: ID743
+    2300106: ID751
+    2300108: ID757
+    2300110: ID763
+    2300112: ID769
+    2300114: ID775
+    2300116: ID781
+    2300118: ID787
+    2300120: ID793
+    2300122: ID799
+    2300124: ID807
+    2300126: ID813
+    2300128: ID821
+    2300130: ID827
+    2300132: ID840
+    2300134: ID846
+    2300136: ID852
+    2300138: ID860
+    2300140: ID868
+    2300142: ID881
+    2300144: ID889
+    2300146: ID895
+    2300148: ID901
+    2300150: ID907
+    2300152: //RootNode
+    2300154: ID590
+    2300156: ID598
+    2300158: ID606
+    2300160: ID627
+    2300162: ID635
+    2300164: ID643
+    2300166: ID651
+    2300168: ID659
+    2300170: ID667
+    2300172: ID675
+    2300174: ID683
+    2300176: ID691
+    2300178: ID699
+    2300180: ID707
+    2300182: ID715
+    2300184: ID723
+    2300186: ID731
+    2300188: ID739
+    2300190: ID747
+    2300192: ID755
+    2300194: ID771
+    2300196: ID777
+    2300198: ID783
+    2300200: ID789
+    2300202: ID795
+    2300204: ID801
+    2300206: ID819
+    2300208: ID833
+    2300210: ID841
+    2300212: ID847
+    2300214: ID866
+    2300216: ID872
+    2300218: ID880
+    2300220: ID888
+    2300222: ID909
+    2300224: ID915
+    2300226: ID921
+    2300228: ID927
+    3300000: group_10
+    3300002: group_11
+    3300004: group_4 1_MeshPart0
+    3300006: group_4 1_MeshPart1
+    3300008: group_4 2_MeshPart0
+    3300010: group_4 2_MeshPart1
+    3300012: group_4 3_MeshPart0
+    3300014: group_4 3_MeshPart1
+    3300016: group_4 4_MeshPart0
+    3300018: group_4 4_MeshPart1
+    3300020: group_4 5_MeshPart0
+    3300022: group_4 5_MeshPart1
+    3300024: group_4 6_MeshPart0
+    3300026: group_4 6_MeshPart1
+    3300028: group_4 7_MeshPart0
+    3300030: group_4 7_MeshPart1
+    3300032: group_4_MeshPart0
+    3300034: group_4_MeshPart1
+    3300036: group_5 1_MeshPart0
+    3300038: group_5 1_MeshPart1
+    3300040: group_5 2_MeshPart0
+    3300042: group_5 2_MeshPart1
+    3300044: group_5 3_MeshPart0
+    3300046: group_5 3_MeshPart1
+    3300048: group_5 4_MeshPart0
+    3300050: group_5 4_MeshPart1
+    3300052: group_5 5_MeshPart0
+    3300054: group_5 5_MeshPart1
+    3300056: group_5 6_MeshPart0
+    3300058: group_5 6_MeshPart1
+    3300060: group_5 7_MeshPart0
+    3300062: group_5 7_MeshPart1
+    3300064: group_5_MeshPart0
+    3300066: group_5_MeshPart1
+    3300068: group_9
+    3300070: ID607
+    3300072: ID615
+    3300074: ID623
+    3300076: ID631
+    3300078: ID639
+    3300080: ID647
+    3300082: ID655
+    3300084: ID663
+    3300086: ID671
+    3300088: ID679
+    3300090: ID687
+    3300092: ID695
+    3300094: ID703
+    3300096: ID711
+    3300098: ID719
+    3300100: ID727
+    3300102: ID735
+    3300104: ID743
+    3300106: ID751
+    3300108: ID757
+    3300110: ID763
+    3300112: ID769
+    3300114: ID775
+    3300116: ID781
+    3300118: ID787
+    3300120: ID793
+    3300122: ID799
+    3300124: ID807
+    3300126: ID813
+    3300128: ID821
+    3300130: ID827
+    3300132: ID840
+    3300134: ID846
+    3300136: ID852
+    3300138: ID860
+    3300140: ID868
+    3300142: ID881
+    3300144: ID889
+    3300146: ID895
+    3300148: ID901
+    3300150: ID907
+    3300152: //RootNode
+    3300154: ID590
+    3300156: ID598
+    3300158: ID606
+    3300160: ID627
+    3300162: ID635
+    3300164: ID643
+    3300166: ID651
+    3300168: ID659
+    3300170: ID667
+    3300172: ID675
+    3300174: ID683
+    3300176: ID691
+    3300178: ID699
+    3300180: ID707
+    3300182: ID715
+    3300184: ID723
+    3300186: ID731
+    3300188: ID739
+    3300190: ID747
+    3300192: ID755
+    3300194: ID771
+    3300196: ID777
+    3300198: ID783
+    3300200: ID789
+    3300202: ID795
+    3300204: ID801
+    3300206: ID819
+    3300208: ID833
+    3300210: ID841
+    3300212: ID847
+    3300214: ID866
+    3300216: ID872
+    3300218: ID880
+    3300220: ID888
+    3300222: ID909
+    3300224: ID915
+    3300226: ID921
+    3300228: ID927
+    4300000: SketchUp
+    4300002: ID607
+    4300004: ID615
+    4300006: ID623
+    4300008: ID631
+    4300010: ID639
+    4300012: ID647
+    4300014: ID655
+    4300016: ID663
+    4300018: ID671
+    4300020: ID679
+    4300022: ID687
+    4300024: ID695
+    4300026: ID703
+    4300028: ID711
+    4300030: ID719
+    4300032: ID727
+    4300034: ID735
+    4300036: ID743
+    4300038: ID751
+    4300040: ID757
+    4300042: ID763
+    4300044: ID769
+    4300046: ID775
+    4300048: ID781
+    4300050: ID787
+    4300052: ID793
+    4300054: ID799
+    4300056: ID807
+    4300058: ID813
+    4300060: ID821
+    4300062: ID827
+    4300064: ID840
+    4300066: ID846
+    4300068: ID852
+    4300070: ID860
+    4300072: ID868
+    4300074: ID881
+    4300076: ID889
+    4300078: ID895
+    4300080: ID901
+    4300082: ID907
+    4300084: group_4_MeshPart0
+    4300086: group_4_MeshPart1
+    4300088: group_5_MeshPart0
+    4300090: group_5_MeshPart1
+    4300092: group_4_MeshPart0
+    4300094: group_4_MeshPart1
+    4300096: group_5_MeshPart0
+    4300098: group_5_MeshPart1
+    4300100: group_4_MeshPart0
+    4300102: group_4_MeshPart1
+    4300104: group_5_MeshPart0
+    4300106: group_5_MeshPart1
+    4300108: group_4_MeshPart0
+    4300110: group_4_MeshPart1
+    4300112: group_5_MeshPart0
+    4300114: group_5_MeshPart1
+    4300116: group_4_MeshPart0
+    4300118: group_4_MeshPart1
+    4300120: group_5_MeshPart0
+    4300122: group_5_MeshPart1
+    4300124: group_4_MeshPart0
+    4300126: group_4_MeshPart1
+    4300128: group_5_MeshPart0
+    4300130: group_5_MeshPart1
+    4300132: group_4_MeshPart0
+    4300134: group_4_MeshPart1
+    4300136: group_5_MeshPart0
+    4300138: group_5_MeshPart1
+    4300140: group_4_MeshPart0
+    4300142: group_4_MeshPart1
+    4300144: group_5_MeshPart0
+    4300146: group_5_MeshPart1
+    4300148: group_9
+    4300150: group_10
+    4300152: group_11
+    4300154: ID627
+    4300156: ID635
+    4300158: ID643
+    4300160: ID651
+    4300162: ID659
+    4300164: ID667
+    4300166: ID675
+    4300168: ID683
+    4300170: ID691
+    4300172: ID699
+    4300174: ID707
+    4300176: ID715
+    4300178: ID723
+    4300180: ID731
+    4300182: ID739
+    4300184: ID747
+    4300186: ID755
+    4300188: ID771
+    4300190: ID777
+    4300192: ID783
+    4300194: ID789
+    4300196: ID795
+    4300198: ID801
+    4300200: ID819
+    4300202: ID833
+    4300204: ID841
+    4300206: ID847
+    4300208: ID866
+    4300210: ID872
+    4300212: ID880
+    4300214: ID888
+    4300216: ID909
+    4300218: ID915
+    4300220: ID921
+    4300222: ID927
+    4300224: ID590
+    4300226: ID598
+    4300228: ID606
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
