@@ -1,0 +1,15 @@
+﻿<Properties>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Shaders\Shield.shader">
+    <Files>
+      <File FileName="Assets\Shaders\Shield.shader" Line="63" Column="41" />
+      <File FileName="Assets\Scripts\Shield.cs" Line="45" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\Callum\Documents\GitHub\KaosGiraffe-\JamTestBed\Assets\Scripts\Swarm.cs" line="161" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

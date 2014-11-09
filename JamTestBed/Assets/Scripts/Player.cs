@@ -4,7 +4,7 @@ using System.Collections;
 public class Player : MonoBehaviour 
 {
 
-	public enum AttackStateType { IceWall, FireBall }
+	public enum AttackStateType { IceWall, FireBall, Lightning }
 	public AttackStateType attackState = AttackStateType.IceWall;
 	//
 	public GameObject IceWallPrefab;
@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
 	private Vector3 IceWallStart;
 	private Vector3 IceWallEnd;
 	private bool IceWallStarted = false;
+	public float minWallLength = 1;
 
 
 	//
@@ -32,7 +33,17 @@ public class Player : MonoBehaviour
 	public float fireBallMasPerTick = 1;
 	private float fireBallMass = 0;
 
+	//
 
+	public GameObject LightningPrefab;
+	private GameObject currentLightning = null;
+
+	private Vector3 lightningStart;
+	private Vector3 lightningEnd;
+
+	private bool growingLightning = false;
+
+	public float lightningHeight = 15;
 
 	// Use this for initialization
 	void Start () 
@@ -60,6 +71,11 @@ public class Player : MonoBehaviour
 			attackState = AttackStateType.IceWall;
 		}
 
+		if (Input.GetKeyDown(KeyCode.Alpha3))
+		{
+			attackState = AttackStateType.Lightning;
+		}
+
 		///
 		switch (attackState)
 		{
@@ -74,9 +90,51 @@ public class Player : MonoBehaviour
 					FireBallUpdate();
 				}
 				break;
+
+			case AttackStateType.Lightning:
+				{
+					LightningUpdate();
+				}
+				break;
 		}		
 
 	}
+
+
+
+	void LightningUpdate()
+	{
+
+		if (growingLightning  == false && Input.GetMouseButtonDown(0))
+		{
+			RaycastHit hit;
+			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+			if (Physics.Raycast(ray, out hit))
+			{
+				lightningStart = hit.point;
+				growingLightning = true;
+				SpawnLightning();
+ 			}
+		}
+
+		if (growingLightning == true && Input.GetMouseButtonUp(0))
+		{
+			Lightning lightning = currentLightning.GetComponent<Lightning>();
+
+			lightning.FinishGrowing();
+
+			currentLightning = null;
+			growingLightning = false;
+		}
+
+	}
+
+	void SpawnLightning()
+	{
+		lightningStart = new Vector3(lightningStart.x, lightningHeight, lightningStart.z);
+		currentLightning = Instantiate(LightningPrefab , lightningStart, Quaternion.identity) as GameObject;
+ 	}
 
 
 	void IceWallUpdate()
@@ -119,8 +177,6 @@ public class Player : MonoBehaviour
 		IceWallEnd  = new Vector3(IceWallEnd.x, -0.9f, IceWallEnd.z);
 		IceWallStart = new Vector3(IceWallStart.x, -0.9f, IceWallStart.z);
 
-
-
 		Vector3 midPoint = IceWallStart + (IceWallEnd - IceWallStart) * 0.5f;
 
 		Vector3 dir = (IceWallEnd - IceWallStart);
@@ -128,12 +184,16 @@ public class Player : MonoBehaviour
 
 		float distance = Vector3.Distance(IceWallEnd, IceWallStart);
 
-
 		GameObject wall = Instantiate(IceWallPrefab, midPoint, Quaternion.identity) as GameObject;
 
 		wall.transform.right = dir;
 
-		wall.transform.localScale = new Vector3(distance, 1, 1);
+		if (distance < minWallLength)
+		{
+			distance = minWallLength;
+		}
+
+		wall.transform.localScale = new Vector3(distance, IceWallPrefab.transform.localScale.y, IceWallPrefab.transform.localScale.z);
 
 	}
 
