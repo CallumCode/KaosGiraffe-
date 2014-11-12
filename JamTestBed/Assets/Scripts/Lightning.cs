@@ -173,6 +173,9 @@ public class Lightning : MonoBehaviour
 		{
 			Vector2 pos = Random.insideUnitCircle * transform.localScale.x * rangeStrikeScaler;
 			GameObject strike = Instantiate(StrikePrefab, transform.position + new Vector3(pos.x, 0, pos.y), transform.rotation) as GameObject;
+			LightningStrike strikeScript = strike.GetComponent<LightningStrike>();
+			strikeScript.SetUpLightningStrike(strikeScript.maxDepth);
+
 			strike.transform.parent = transform;
 		}
 
