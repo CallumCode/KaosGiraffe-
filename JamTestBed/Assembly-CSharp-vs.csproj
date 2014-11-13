@@ -56,6 +56,7 @@
      <Compile Include="Assets\Scripts\Player.cs" />
      <Compile Include="Assets\Scripts\Shield.cs" />
      <Compile Include="Assets\Scripts\Spawner.cs" />
+     <Compile Include="Assets\Scripts\StatBar.cs" />
      <Compile Include="Assets\Scripts\Swarm.cs" />
      <Compile Include="Assets\Scripts\SwarmHead.cs" />
      <Compile Include="Assets\Scripts\Tower.cs" />

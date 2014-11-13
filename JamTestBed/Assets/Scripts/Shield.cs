@@ -7,12 +7,25 @@ public class Shield : MonoBehaviour
 	public float shieldAplhaRate = 1;
 
 	public float reboundDamage = 50;
-	public float health = 100;
+
+	
+	private const float maxHealth = 100;
+	private const float minHealth = 0;
+	public float health = maxHealth;
+
+	public GameObject HealthStatBarObject;
+	private StatBar HealthStatBarScript;
+
 	// Use this for initialization
 	void Start () 
 	{
 		// dont colide with ground
 		Physics.IgnoreLayerCollision(10, 8);
+
+		HealthStatBarScript = HealthStatBarObject.GetComponent<StatBar>();
+
+		HealthStatBarScript.SetStat(health/maxHealth);
+
 	}
 	
 	// Update is called once per frame
@@ -58,12 +71,14 @@ public class Shield : MonoBehaviour
 
 		health -= amount;
 
-		health = Mathf.Clamp(health, 0, 100);
+		health = Mathf.Clamp(health, minHealth, maxHealth);
 
-		if (health <= 0)
+		if (health <= minHealth)
 		{
 			collider.enabled = false;
  		}
+
+		HealthStatBarScript.SetStat(health / maxHealth);
 
 	}
 }

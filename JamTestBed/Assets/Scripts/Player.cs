@@ -14,6 +14,8 @@ public class Player : MonoBehaviour
 	private bool IceWallStarted = false;
 	public float minWallLength = 1;
 
+	public float wallInitialManaCost = 5;
+	public float wallLengthManCost = 5;
 
 	//
 	public GameObject FireBallPrefab;
@@ -33,6 +35,10 @@ public class Player : MonoBehaviour
 	public float fireBallMasPerTick = 1;
 	private float fireBallMass = 0;
 
+	public float fireBallManaCost = 5;
+	public float fireBallInitalManaCost = 5;
+
+
 	//
 
 	public GameObject LightningPrefab;
@@ -45,16 +51,37 @@ public class Player : MonoBehaviour
 
 	public float lightningHeight = 15;
 
+	public float lightningManaCost = 1;
+	public float lightningInitalManaCost = 5;
+
+
+	//
+
+	const float maxMana = 100;
+	const float minMana = 0;
+	public float mana = maxMana;
+
+	public float manaRegain = 5;
+
+	public GameObject ManaStatBarObject;
+	private StatBar ManaStatBarScript;
+
+
 	// Use this for initialization
 	void Start () 
 	{
-	
+
+
+		ManaStatBarScript = ManaStatBarObject.GetComponent<StatBar>();
+		ManaStatBarScript.SetStat(mana / maxMana);
 	}
 	
 	// Update is called once per frame
 	void Update () 
 	{
 		AttackStateUpdate();
+
+		ChangeMana(-manaRegain * Time.deltaTime);
 	}
 
 
@@ -105,29 +132,55 @@ public class Player : MonoBehaviour
 	void LightningUpdate()
 	{
 
+
 		if (growingLightning  == false && Input.GetMouseButtonDown(0))
 		{
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			if (Physics.Raycast(ray, out hit))
+			if ((mana - lightningInitalManaCost) > minMana)
 			{
-				lightningStart = hit.point;
-				growingLightning = true;
-				SpawnLightning();
- 			}
+				ChangeMana(lightningInitalManaCost);
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+				if (Physics.Raycast(ray, out hit))
+				{
+					lightningStart = hit.point;
+					growingLightning = true;
+					SpawnLightning();
+				}
+			}
+			else
+			{
+				NotEnoughMana();
+			}
 		}
 
-		if (growingLightning == true && Input.GetMouseButtonUp(0))
+
+		if (growingLightning)
 		{
-			Lightning lightning = currentLightning.GetComponent<Lightning>();
+			bool skipNoMana = false;
 
-			lightning.FinishGrowing();
+			if ((mana - lightningManaCost * Time.deltaTime) > minMana)
+			{
+				ChangeMana(lightningManaCost * Time.deltaTime);
+			}
+			else
+			{
+				skipNoMana = true;
+				NotEnoughMana();
+			}
 
-			currentLightning = null;
-			growingLightning = false;
+
+			if (Input.GetMouseButtonUp(0) || skipNoMana == true)
+			{
+				Lightning lightning = currentLightning.GetComponent<Lightning>();
+
+				lightning.FinishGrowing();
+
+				currentLightning = null;
+				growingLightning = false;
+			}
+
 		}
-
 	}
 
 	void SpawnLightning()
@@ -141,14 +194,23 @@ public class Player : MonoBehaviour
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
-			RaycastHit hit;
-  			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			if (Physics.Raycast(ray, out hit))
+			if ((mana - wallInitialManaCost) > minMana)
 			{
-				IceWallStarted = true;
-				IceWallStart = hit.point;
-				//Debug.Log("Start POint "  + startPos);
+				ChangeMana(wallInitialManaCost);
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+				if (Physics.Raycast(ray, out hit))
+				{
+					IceWallStarted = true;
+					IceWallStart = hit.point;
+					//Debug.Log("Start POint "  + startPos);
+				}
+
+			}
+			else
+			{
+				NotEnoughMana();
 			}
  		}
 
@@ -174,7 +236,7 @@ public class Player : MonoBehaviour
 
 	void CreateIceWall()
 	{
-		IceWallEnd  = new Vector3(IceWallEnd.x, -0.9f, IceWallEnd.z);
+		IceWallEnd = new Vector3(IceWallEnd.x, -0.9f, IceWallEnd.z);
 		IceWallStart = new Vector3(IceWallStart.x, -0.9f, IceWallStart.z);
 
 		Vector3 midPoint = IceWallStart + (IceWallEnd - IceWallStart) * 0.5f;
@@ -184,65 +246,95 @@ public class Player : MonoBehaviour
 
 		float distance = Vector3.Distance(IceWallEnd, IceWallStart);
 
-		GameObject wall = Instantiate(IceWallPrefab, midPoint, Quaternion.identity) as GameObject;
-
-		wall.transform.right = dir;
-
-		if (distance < minWallLength)
+		float manaCost =   distance * wallLengthManCost;
+		if ((mana - manaCost) > minWallLength)
 		{
-			distance = minWallLength;
+			ChangeMana(manaCost);
+
+			GameObject wall = Instantiate(IceWallPrefab, midPoint, Quaternion.identity) as GameObject;
+
+			wall.transform.right = dir;
+
+			if (distance < minWallLength)
+			{
+				distance = minWallLength;
+			}
+
+
+			wall.transform.localScale = new Vector3(distance, IceWallPrefab.transform.localScale.y, IceWallPrefab.transform.localScale.z);
 		}
-
-		wall.transform.localScale = new Vector3(distance, IceWallPrefab.transform.localScale.y, IceWallPrefab.transform.localScale.z);
-
+		else
+		{
+			NotEnoughMana();
+		}
 	}
+
 
 	void FireBallUpdate()
 	{
 		if (Input.GetMouseButtonDown(0))
 		{
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			if (Physics.Raycast(ray, out hit))
+			if((mana - fireBallInitalManaCost) > minMana)
 			{
-				chargeFireBall = true;
-				FireBallStart = hit.point;
-				SpawnFireBall();
- 			}
+				ChangeMana(fireBallInitalManaCost);
+
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+				if (Physics.Raycast(ray, out hit))
+				{
+					chargeFireBall = true;
+					FireBallStart = hit.point;
+					SpawnFireBall();
+ 				}
+			} 
+			else
+			{
+				NotEnoughMana();
+			}
 		}
 
 		if (chargeFireBall == true)
 		{
-			GrowFireBall();
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-
-			if (Physics.Raycast(ray, out hit))
+			bool endNoMana = false;
+			if ((mana - fireBallManaCost) > minMana)
 			{
-				FireBallEnd = hit.point;
+				ChangeMana(fireBallManaCost * Time.deltaTime);
+			}
+			else
+			{
+				endNoMana = true;
 			}
 
-			if (Input.GetMouseButtonUp(0))
-			{		
-				chargeFireBall = false;
 
-				LaunchFireBall();
+				GrowFireBall();
+				RaycastHit hit;
+				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-			}
+				if (Physics.Raycast(ray, out hit))
+				{
+					FireBallEnd = hit.point;
+				}
 
+				if (Input.GetMouseButtonUp(0) || endNoMana == true)
+				{
+					chargeFireBall = false;
+
+					LaunchFireBall();
+
+				}
+			 
 		}
 
 	
 	}
-
+	
 	void SpawnFireBall()
 	{
 		FireBallStart = new Vector3(FireBallStart.x,1, FireBallStart.z);
 		currentFireBall = Instantiate(FireBallPrefab, FireBallStart, Quaternion.identity) as GameObject;
 		fireBallMass = 0;
 	}
-
 
 	void GrowFireBall()
 	{
@@ -279,6 +371,24 @@ public class Player : MonoBehaviour
 
 		currentFireBall = null;
 		fireBallMass = 0;
+
+	}
+
+
+	void ChangeMana(float amount )
+	{
+		mana -= amount;
+
+		mana = Mathf.Clamp(mana, minMana, maxMana);
+
+		ManaStatBarScript.SetStat(mana / maxMana);
+
+	}
+
+	void NotEnoughMana()
+	{
+
+		Debug.Log("not Enough Mana");
 
 	}
 }
