@@ -57,7 +57,7 @@ public class Shield : MonoBehaviour
 			
  			Debug.DrawRay(contact.point, contact.normal, Color.white);
 	 
-				Debug.Log("HIT");
+			//	Debug.Log("HIT");
 
 				ShieldHit(contact.point);
  

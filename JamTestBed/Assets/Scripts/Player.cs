@@ -28,12 +28,12 @@ public class Player : MonoBehaviour
 	public float fireBallGrowthPerTick= 1;
 
 	public float fireBallTickRate = 1;
-	private float firBallGrowthTimer = 0;
+	private float fireBallGrowthTimer = 0;
 
 	public float fireBallForceScaler = 1;
 	
 	public float fireBallMasPerTick = 1;
-	private float fireBallMass = 0;
+	private float fireBallMass = 1;
 
 	public float fireBallManaCost = 5;
 	public float fireBallInitalManaCost = 5;
@@ -333,7 +333,7 @@ public class Player : MonoBehaviour
 	{
 		FireBallStart = new Vector3(FireBallStart.x,1, FireBallStart.z);
 		currentFireBall = Instantiate(FireBallPrefab, FireBallStart, Quaternion.identity) as GameObject;
-		fireBallMass = 0;
+		fireBallMass = 1;
 	}
 
 	void GrowFireBall()
@@ -341,9 +341,9 @@ public class Player : MonoBehaviour
 		if (currentFireBall != null)
 		{
 
-			if (Time.time > (firBallGrowthTimer + 1 / fireBallTickRate) )
+			if (Time.time > (fireBallGrowthTimer + 1 / fireBallTickRate) )
 			{
-				firBallGrowthTimer = Time.time;
+				fireBallGrowthTimer = Time.time;
 
 				currentFireBall.transform.localScale += new Vector3(1,1,1) * fireBallGrowthPerTick;
 				fireBallMass += fireBallMasPerTick;
@@ -370,7 +370,7 @@ public class Player : MonoBehaviour
 		currentFireBall.rigidbody.AddForce(dir * distance * fireBallForceScaler);
 
 		currentFireBall = null;
-		fireBallMass = 0;
+		fireBallMass = 1;
 
 	}
 
