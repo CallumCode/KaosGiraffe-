@@ -4,12 +4,20 @@ using System.Collections;
 public class Fire: MonoBehaviour 
 {
 
-	public float lifeTime = 5;
-	private float timer;
+	public float lifeTime = 10;
+	private float timer =0;
 
 	public GameObject fireBall = null;
 	
-	public float fireDamge = 50;
+	public float fireDamage = 50;
+	public float minFireDamage = 50;
+	public float maxFireDamage = 200;
+
+	public readonly Vector3 minScale = new Vector3(1, 1, 1);
+	public readonly Vector3 maxScale = new Vector3(10, 10, 10);
+
+	public readonly float minPartSize = 1;
+	public readonly float maxPartSize = 10;
 
 	// Use this for initialization
 	void Start ()
@@ -20,8 +28,7 @@ public class Fire: MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-
-
+		
 		if( Time.time > (timer + lifeTime) )
 		{
 
@@ -51,8 +58,8 @@ public class Fire: MonoBehaviour
 		{
 
 
-			collider.gameObject.GetComponent<Enemy>().TakeDamage(fireDamge * Time.deltaTime);
-			Debug.Log("fire  burn " + collider.tag);
+			collider.gameObject.GetComponent<Enemy>().TakeDamage(fireDamage * Time.deltaTime);
+			//Debug.Log("fire  burn " + collider.tag);
 		}
 	}
 

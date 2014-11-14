@@ -369,8 +369,13 @@ public class Player : MonoBehaviour
 		currentFireBall.rigidbody.mass = fireBallMass;
 		currentFireBall.rigidbody.AddForce(dir * distance * fireBallForceScaler);
 
+		currentFireBall.GetComponent<FireBall>().LaunchSetup();
+
 		currentFireBall = null;
+		
 		fireBallMass = 1;
+
+
 
 	}
 

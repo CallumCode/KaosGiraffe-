@@ -4,8 +4,8 @@ using System.Collections;
 public class Enemy : MonoBehaviour 
 {
 
-	private GameObject TowerObject;
-	private Tower TowerScript;
+//	private GameObject TowerObject;
+//	private Tower TowerScript;
 
 	float health = 100;
 	protected float damage;
@@ -53,8 +53,8 @@ public 	void Movement()
 
 	public void SetUp(GameObject towerObj)
 	{
-		TowerObject = towerObj;
-		TowerScript = TowerObject	.GetComponent<Tower>();
+	//	TowerObject = towerObj;
+		//TowerScript = TowerObject	.GetComponent<Tower>();
 
 		target = towerObj.transform.position;
 		target = new Vector3(target.x, transform.position.y , target.z);
