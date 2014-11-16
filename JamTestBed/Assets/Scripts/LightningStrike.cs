@@ -24,7 +24,8 @@ public class LightningStrike : MonoBehaviour
 	
 	private float strikeTimer = 0;
 
- 
+
+	public GameObject StrikeDamage;
 	// Use this for initialization
 	void Start()
 	{
@@ -53,6 +54,7 @@ public class LightningStrike : MonoBehaviour
 				float dist = Vector3.Distance(transform.position, hit.point);
 
 				ResetPos(dist);
+
 			}
 		}
  	}
@@ -72,13 +74,12 @@ public class LightningStrike : MonoBehaviour
  
 		if (Physics.Raycast(ray, out hit))
 		{
-			strikeTimer = Time.time;
-
+			strikeTimer = Time.time; 
 		//	float temp = (depth / maxDepth) * maxNumVerts;
 			//currentNumVerts = Mathf.RoundToInt(temp);
 			//currentdepth--;
 			
-			Debug.Log(currentNumVerts);
+		//	Debug.Log(currentNumVerts);
 
 			gameObject.AddComponent<LineRenderer>();
 			lineRenderer = GetComponent<LineRenderer>();
@@ -91,7 +92,6 @@ public class LightningStrike : MonoBehaviour
 			float dist = Vector3.Distance(transform.position, hit.point);
 
 			ResetPos(dist);
- 
 		}
 		else
 		{
@@ -114,7 +114,11 @@ public class LightningStrike : MonoBehaviour
 			pos += new Vector3(randMove.x, 0, randMove.y);
  			lineRenderer.SetPosition((int)vert, pos);
  
+			if(vert == (currentNumVerts-1))
+			{
+				StrikeDamage.transform.position = pos;
 
+			}
 		}
 	}
 
