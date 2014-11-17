@@ -9,7 +9,7 @@ public class Treeman : Enemy
 	{
 		damage = 10;
 		attacksRate = 2;
-		moveSpeed = 1; 
+		moveSpeed = 2; 
 		turnSpeed = 0.5f;
 		armourScaler = 0.1f;
 	}

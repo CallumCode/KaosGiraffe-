@@ -1,9 +1,10 @@
 ﻿<Properties>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Shaders\Shield.shader">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\Lightning.cs">
     <Files>
-      <File FileName="Assets\Shaders\Shield.shader" Line="63" Column="41" />
-      <File FileName="Assets\Scripts\Shield.cs" Line="45" Column="1" />
+      <File FileName="Assets\Scripts\LightningStrike.cs" Line="57" Column="1" />
+      <File FileName="Assets\Scripts\StrikeDamage.cs" Line="5" Column="2" />
+      <File FileName="Assets\Scripts\Lightning.cs" Line="129" Column="11" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
