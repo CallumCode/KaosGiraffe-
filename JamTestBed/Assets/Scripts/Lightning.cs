@@ -35,7 +35,7 @@ public class Lightning : MonoBehaviour
 	public float  maxGrowingTime = 0;
 
 	private float growingTimer = 0;
-	public float growTickRate = 5;
+	public float growTickRate = 10;
 
 	public float upSpeed = 1;
 
@@ -52,6 +52,12 @@ public class Lightning : MonoBehaviour
 
 	public int  maxStrikes = 5;
 	private float sizeMod = 0;
+
+
+	public float maxTimeStriking = 10;
+	private float timeStartStrike  = 0;
+	private float shrinkStartTime = 0;
+	public float maxShrinkTime = 5;
 
 	// Use this for initialization
 	void Start()
@@ -72,17 +78,17 @@ public class Lightning : MonoBehaviour
 				break;
 			case LightningStageType.striking:
 				{
-
+					StrikingUpdate();
 				}
 				break;
 			case LightningStageType.shrinking:
 				{
-
+					ShrinkingUpdate();
 				}
 				break;
 			case LightningStageType.dead:
 				{
-
+					DestroySelf();
 				}
 				break;
 
@@ -90,26 +96,68 @@ public class Lightning : MonoBehaviour
 
 	}
 
-	void GrowingUpdate()
+	void DestroySelf()
+	{
+		Debug.Log("Destroy cloud");
+		Destroy(gameObject);
+	}
+
+
+	void StrikingUpdate()
 	{
 
-		  sizeMod = (Time.time  -  cloudStartTime ) /  maxGrowingTime ;
+		if(Time.time > ( timeStartStrike + maxTimeStriking*sizeMod))
+		{
+			lightningStage = LightningStageType.shrinking;
+			shrinkStartTime =  Time.time;
+		}
+	}
+
+	void GrowingUpdate()
+	{		
+		sizeMod = (Time.time  -  cloudStartTime ) /  maxGrowingTime ;
 		sizeMod = Mathf.Clamp01(sizeMod);
-
+		 
 		cloudMat.color = Color.Lerp(cloudStart, cloudEnd , sizeMod);
-
+		
 		transform.Translate(Vector3.up*Time.deltaTime * upSpeed);
-
+		
 		if (Time.time > (growingTimer + 1 / growTickRate))
 		{
+			growingTimer = Time.time;
 			transform.localScale = startingScale + startingScale * maxCoudScale * sizeMod;
-			
-		}
-
-
+ 		}	
 
 	}
 
+	void ShrinkingUpdate()
+	{
+
+		float t = (Time.time  -  shrinkStartTime ) /  (maxShrinkTime*sizeMod);
+  
+		//cloudMat.color = Color.Lerp(cloudStart, cloudEnd , t);
+
+		if(t > 0)
+		{
+			transform.Translate(-Vector3.up*Time.deltaTime * upSpeed);
+		}
+
+		if(t  >= 1 )
+		{
+			lightningStage = LightningStageType.dead;
+			return;
+		}
+			
+		
+		if (Time.time > (growingTimer + 1 / growTickRate))
+		{
+			growingTimer = Time.time;
+			transform.localScale = Vector3.Lerp(startingScale , Vector3.zero , t);
+			Debug.Log(t);	
+		}	
+
+	}
+ 
 
 	void CreateClouds()
 	{
@@ -179,6 +227,11 @@ public class Lightning : MonoBehaviour
 			strike.transform.parent = transform;
 		}
 
+		timeStartStrike = Time.time;
+		startingScale = transform.localScale;
+
  	}
+
+
  
 }
