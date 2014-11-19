@@ -98,7 +98,7 @@ public class Lightning : MonoBehaviour
 
 	void DestroySelf()
 	{
-		Debug.Log("Destroy cloud");
+//		Debug.Log("Destroy cloud");
 		Destroy(gameObject);
 	}
 
@@ -153,7 +153,7 @@ public class Lightning : MonoBehaviour
 		{
 			growingTimer = Time.time;
 			transform.localScale = Vector3.Lerp(startingScale , Vector3.zero , t);
-			Debug.Log(t);	
+//			Debug.Log(t);	
 		}	
 
 	}

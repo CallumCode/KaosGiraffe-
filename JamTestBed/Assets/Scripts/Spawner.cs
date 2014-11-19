@@ -14,6 +14,9 @@ public class Spawner : MonoBehaviour {
 	public float radius = 10;
 	private float spawnTimer = 0;
 
+
+
+
 	// Use this for initialization
 	void Start () 
 	{
