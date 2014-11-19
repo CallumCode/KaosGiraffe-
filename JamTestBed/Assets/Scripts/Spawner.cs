@@ -14,6 +14,9 @@ public class Spawner : MonoBehaviour {
 	public float radius = 10;
 	private float spawnTimer = 0;
 
+
+
+
 	// Use this for initialization
 	void Start () 
 	{
@@ -74,7 +77,7 @@ public class Spawner : MonoBehaviour {
 	void SpawnTreeMan()
 	{
 		Vector3 pos = PointOnCircle(radius, Random.Range(0, 360), TowerObject.transform.position);
-		pos = new Vector3(pos.x, TreeManPrefab.transform.localScale.y, pos.z);
+		pos = new Vector3(pos.x, TreeManPrefab.transform.position.y, pos.z);
 
 		GameObject enemy = Instantiate(TreeManPrefab, pos, Quaternion.identity) as GameObject;
 		enemy.GetComponent<Enemy>().SetUp(TowerObject);
