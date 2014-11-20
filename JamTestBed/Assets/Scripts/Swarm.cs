@@ -29,7 +29,7 @@ public class Swarm : Enemy {
 		damage = 0.1f;
 		attacksRate = 3;
 
-		avoidTimeTotal = 1.0f;
+		avoidTimeTotal = 2.0f;
 		avoidTimeStep = 0.1f;
 		
 		aovidSpeedMax = 15.0f;				
@@ -38,7 +38,7 @@ public class Swarm : Enemy {
 
 		maxDist = 500;
 
-		radiusScaler = 2.0f;
+		radiusScaler = 10.0f;
 
 		armourScaler = 0.5f;
 
