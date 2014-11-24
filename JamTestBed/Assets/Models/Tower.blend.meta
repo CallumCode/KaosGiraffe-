@@ -1,0 +1,150 @@
+fileFormatVersion: 2
+guid: d3f109eb5cd088f4eb878a22d71a3cc0
+ModelImporter:
+  serializedVersion: 16
+  fileIDToRecycleName:
+    100000: House
+    100002: //RootNode
+    100004: Tower
+    100006: Tower_MeshPart0
+    100008: Tower_MeshPart1
+    100010: Tower_MeshPart10
+    100012: Tower_MeshPart11
+    100014: Tower_MeshPart12
+    100016: Tower_MeshPart13
+    100018: Tower_MeshPart14
+    100020: Tower_MeshPart15
+    100022: Tower_MeshPart2
+    100024: Tower_MeshPart3
+    100026: Tower_MeshPart4
+    100028: Tower_MeshPart5
+    100030: Tower_MeshPart6
+    100032: Tower_MeshPart7
+    100034: Tower_MeshPart8
+    100036: Tower_MeshPart9
+    400000: House
+    400002: //RootNode
+    400004: Tower
+    400006: Tower_MeshPart0
+    400008: Tower_MeshPart1
+    400010: Tower_MeshPart10
+    400012: Tower_MeshPart11
+    400014: Tower_MeshPart12
+    400016: Tower_MeshPart13
+    400018: Tower_MeshPart14
+    400020: Tower_MeshPart15
+    400022: Tower_MeshPart2
+    400024: Tower_MeshPart3
+    400026: Tower_MeshPart4
+    400028: Tower_MeshPart5
+    400030: Tower_MeshPart6
+    400032: Tower_MeshPart7
+    400034: Tower_MeshPart8
+    400036: Tower_MeshPart9
+    2300000: House
+    2300002: Tower_MeshPart0
+    2300004: Tower_MeshPart1
+    2300006: Tower_MeshPart10
+    2300008: Tower_MeshPart11
+    2300010: Tower_MeshPart12
+    2300012: Tower_MeshPart13
+    2300014: Tower_MeshPart14
+    2300016: Tower_MeshPart15
+    2300018: Tower_MeshPart2
+    2300020: Tower_MeshPart3
+    2300022: Tower_MeshPart4
+    2300024: Tower_MeshPart5
+    2300026: Tower_MeshPart6
+    2300028: Tower_MeshPart7
+    2300030: Tower_MeshPart8
+    2300032: Tower_MeshPart9
+    3300000: House
+    3300002: Tower_MeshPart0
+    3300004: Tower_MeshPart1
+    3300006: Tower_MeshPart10
+    3300008: Tower_MeshPart11
+    3300010: Tower_MeshPart12
+    3300012: Tower_MeshPart13
+    3300014: Tower_MeshPart14
+    3300016: Tower_MeshPart15
+    3300018: Tower_MeshPart2
+    3300020: Tower_MeshPart3
+    3300022: Tower_MeshPart4
+    3300024: Tower_MeshPart5
+    3300026: Tower_MeshPart6
+    3300028: Tower_MeshPart7
+    3300030: Tower_MeshPart8
+    3300032: Tower_MeshPart9
+    4300000: House
+    4300002: Tower_MeshPart0
+    4300004: Tower_MeshPart1
+    4300006: Tower_MeshPart2
+    4300008: Tower_MeshPart3
+    4300010: Tower_MeshPart4
+    4300012: Tower_MeshPart5
+    4300014: Tower_MeshPart6
+    4300016: Tower_MeshPart7
+    4300018: Tower_MeshPart8
+    4300020: Tower_MeshPart9
+    4300022: Tower_MeshPart10
+    4300024: Tower_MeshPart11
+    4300026: Tower_MeshPart12
+    4300028: Tower_MeshPart13
+    4300030: Tower_MeshPart14
+    4300032: Tower_MeshPart15
+    7400000: Default Take
+    9500000: //RootNode
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  additionalBone: 0
+  userData: 
