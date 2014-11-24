@@ -53,7 +53,119 @@ ModelImporter:
     animationScaleError: .5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Default Take
+      takeName: Default Take
+      firstFrame: 9
+      lastFrame: 49
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Body_002
+        weight: 1
+      - path: Armature/Body_002/Body
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_L/MiddleArm_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_L/MiddleArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_R
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_R/MiddleArm_R
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_R/MiddleArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Body_002/Body/UpperLeg_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperLeg_R
+        weight: 1
+      - path: Armature/Body_002/Body/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
+    - serializedVersion: 16
+      name: ArmatureAction
+      takeName: ArmatureAction
+      firstFrame: 0
+      lastFrame: 50
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: Armature
+        weight: 1
+      - path: Armature/Body_002
+        weight: 1
+      - path: Armature/Body_002/Body
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_L/MiddleArm_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_L/MiddleArm_L/LowerArm_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_R
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_R/MiddleArm_R
+        weight: 1
+      - path: Armature/Body_002/Body/UpperArm_R/MiddleArm_R/LowerArm_R
+        weight: 1
+      - path: Armature/Body_002/Body/UpperLeg_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperLeg_L/LowerLeg_L
+        weight: 1
+      - path: Armature/Body_002/Body/UpperLeg_R
+        weight: 1
+      - path: Armature/Body_002/Body/UpperLeg_R/LowerLeg_R
+        weight: 1
+      - path: Cylinder
+        weight: 1
+      maskType: 0
+      maskSource: {instanceID: 0}
     isReadable: 1
   meshes:
     lODScreenPercentages: []
