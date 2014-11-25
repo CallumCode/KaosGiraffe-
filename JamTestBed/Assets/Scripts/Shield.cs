@@ -16,7 +16,7 @@ public class Shield : MonoBehaviour
 	public GameObject HealthStatBarObject;
 	private StatBar HealthStatBarScript;
 
-	// Use this for initialization
+ 	// Use this for initialization
 	void Start () 
 	{
 		// dont colide with ground
@@ -34,18 +34,20 @@ public class Shield : MonoBehaviour
 		shieldAplha -= shieldAplhaRate * Time.deltaTime;
 		shieldAplha = Mathf.Clamp01(shieldAplha);
 		renderer.material.SetFloat("_shieldAplha", shieldAplha);
-	}
+
+ 	}
 
 	void ShieldHit(Vector3 contactPoint)
 	{ 
  		shieldAplha = 1;
-		renderer.material.SetFloat("_diameter", transform.localScale.x * 2);
+		renderer.material.SetFloat("_diameter", transform.localScale.x);
 
 		Vector4 localPoint = transform.InverseTransformPoint(contactPoint);
 
-		localPoint.Scale(transform.localScale);
-		localPoint.w = 1;
+ 		localPoint.w = 1;
 		renderer.material.SetVector("_hitPoint", localPoint);
+	
+		Debug.Log("Shield " + localPoint);
    	}
 
 
