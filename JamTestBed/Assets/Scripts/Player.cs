@@ -66,11 +66,18 @@ public class Player : MonoBehaviour
 	public GameObject ManaStatBarObject;
 	private StatBar ManaStatBarScript;
 
+	private LineRenderer helpLine;
+	public Material fireBallHelpMat	;
+	public Material iceWallHelpMat	;
+
+	public float maxHelpWidth = 15;
+	public float minHelpWidth = 1;
+	public float helpWidth = 1;
 
 	// Use this for initialization
 	void Start () 
 	{
-
+		helpLine = GetComponent<LineRenderer>();
 
 		ManaStatBarScript = ManaStatBarObject.GetComponent<StatBar>();
 		ManaStatBarScript.SetStat(mana / maxMana);
@@ -191,20 +198,21 @@ public class Player : MonoBehaviour
 
 
 	void IceWallUpdate()
-	{
+	{			
+		RaycastHit hit;
+		Ray ray ;
 		if (Input.GetMouseButtonDown(0))
 		{
 			if ((mana - wallInitialManaCost) > minMana)
 			{
 				ChangeMana(wallInitialManaCost);
-				RaycastHit hit;
-				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+				  ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
 				if (Physics.Raycast(ray, out hit))
 				{
 					IceWallStarted = true;
 					IceWallStart = hit.point;
-					//Debug.Log("Start POint "  + startPos);
+					ActivateHelp(iceWallHelpMat , hit.point);
 				}
 
 			}
@@ -215,20 +223,28 @@ public class Player : MonoBehaviour
  		}
 
 
-		if (Input.GetMouseButtonUp(0) && IceWallStarted == true)
-		{
-			RaycastHit hit;
-			Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
+		  ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+		
+	
 			if (Physics.Raycast(ray, out hit))
 			{
-				IceWallEnd = hit.point;
-			//	Debug.Log("endPos " + endPos);
-				CreateIceWall();
-			}
+				helpLine.SetPosition(1,hit.point);
+			
+				float dist = Vector3.Distance(FireBallStart, hit.point);
+				float t = Mathf.Clamp01(dist / 500);
+				helpWidth = Mathf.Lerp(minHelpWidth, maxHelpWidth , t ); 
+				helpLine.SetWidth( helpWidth , helpWidth );
+					
+				if (Input.GetMouseButtonUp(0) && IceWallStarted == true)
+				{
+					IceWallEnd = hit.point;
+					CreateIceWall();
+					helpLine.enabled = false;	
+					IceWallStarted = false;
+				}
 
 
-			IceWallStarted = false;
 
 		}
 
@@ -269,7 +285,15 @@ public class Player : MonoBehaviour
 		}
 	}
 
-
+	void ActivateHelp(Material mat, Vector3 pos)
+	{
+		helpLine.enabled = true;
+		helpLine.SetPosition(0,pos);
+		helpLine.SetPosition(1,pos);
+		helpLine.renderer.material = mat;
+		helpLine.SetWidth( helpWidth , helpWidth );
+		helpWidth = minHelpWidth;
+	}
 	void FireBallUpdate()
 	{
 		if (Input.GetMouseButtonDown(0))
@@ -286,6 +310,9 @@ public class Player : MonoBehaviour
 					chargeFireBall = true;
 					FireBallStart = hit.point;
 					SpawnFireBall();
+
+					ActivateHelp(fireBallHelpMat, hit.point) ;
+
  				}
 			} 
 			else
@@ -306,7 +333,7 @@ public class Player : MonoBehaviour
 				endNoMana = true;
 			}
 
-
+ 
 				GrowFireBall();
 				RaycastHit hit;
 				Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -314,12 +341,19 @@ public class Player : MonoBehaviour
 				if (Physics.Raycast(ray, out hit))
 				{
 					FireBallEnd = hit.point;
+					helpLine.SetPosition(1,hit.point);
+
+					float dist = Vector3.Distance(FireBallStart, hit.point);
+					float t = Mathf.Clamp01(dist / 500);
+					helpWidth = Mathf.Lerp(minHelpWidth, maxHelpWidth , t ); 
+					helpLine.SetWidth( helpWidth , helpWidth );
+
 				}
 
 				if (Input.GetMouseButtonUp(0) || endNoMana == true)
 				{
 					chargeFireBall = false;
-
+					helpLine.enabled = false;
 					LaunchFireBall();
 
 				}
@@ -374,9 +408,6 @@ public class Player : MonoBehaviour
 		currentFireBall = null;
 		
 		fireBallMass = 1;
-
-
-
 	}
 
 
