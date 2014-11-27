@@ -7,9 +7,9 @@ public class Treeman : Enemy
 	// Use this for initialization
 	void Start () 
 	{
-		damage = 10;
+		damage = 5;
 		attacksRate = 2;
-		moveSpeed = 4; 
+		moveSpeed = 6; 
 		turnSpeed = 0.75f;
 		armourScaler = 0.1f;
 	}
