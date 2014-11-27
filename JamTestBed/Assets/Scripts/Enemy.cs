@@ -75,7 +75,7 @@ public 	void Movement()
 		{
 
 			// Game is lost 
-			Application.LoadLevel(Application.loadedLevel);
+			Application.LoadLevel("Lose");
 		}
 
 

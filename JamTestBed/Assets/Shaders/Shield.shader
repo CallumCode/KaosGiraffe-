@@ -56,11 +56,11 @@
                 
               	fragmentInput o;   
 
-				float t =  (dist  / _diameter);
+				float t =  (dist  / 0.5);
 				
 				t = clamp(t,0,1);
 
-                o.alpha =_shieldAplha;// (1 - t)* _shieldAplha;
+                o.alpha = (1- t) * _shieldAplha;
 
                 o.alpha.a = clamp(o.alpha,0,1);
                 o.pos = mul (UNITY_MATRIX_MVP, v.vert); 
@@ -74,7 +74,7 @@
 				float4 colour;                 
 				float4 c = tex2D(_MainTex, i.texcoord0); 
 				colour.rgb =  c.rgb;
-				colour.a = i.alpha.a	;
+				colour.a =  i.alpha.a	;
 				return colour;
             }
 
