@@ -39,3 +39,6 @@ JamTestBed/JamTestBed.sln
 *.csproj
 *.sln
 *.sln
+*.sln
+*.sln
+JamTestBed/Assets/Models/Materials/Bug.mat
