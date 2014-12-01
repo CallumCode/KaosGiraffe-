@@ -9,7 +9,7 @@ public class AttackInfo
 
 
 	public float minTime = 0.1f;
-	public float maxTime = 1.0f;
+	public float maxTime = 0.5f;
 
 
 	public float startAngle;

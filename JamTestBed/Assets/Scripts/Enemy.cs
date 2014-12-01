@@ -64,7 +64,7 @@ public 	void Movement()
 
 		// cache it as transform acutaly is getComponet and will be called a lot
 		theTransform = transform;
-	}
+	}	
 
 
 	void OnControllerColliderHit(ControllerColliderHit collisionInfo)
@@ -73,7 +73,6 @@ public 	void Movement()
 
 		if (collisionInfo.collider.CompareTag("Tower"))
 		{
-
 			// Game is lost 
 			Application.LoadLevel("Lose");
 		}
@@ -84,6 +83,13 @@ public 	void Movement()
 		{ 
 			if(Time.time > (attackTimer + 1 / attacksRate) )
 			{
+				Animator anim = GetComponent<Animator>();
+				if(anim != null)
+				{
+					anim.SetTrigger(0);
+				}
+
+
 				attackTimer = Time.time;
 				Shield shield = collisionInfo.gameObject.GetComponent<Shield>();
 				shield.TakeDamage(damage, collisionInfo.point);

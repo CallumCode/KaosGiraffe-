@@ -18,7 +18,7 @@ public class Swarm : Enemy {
 	float maxDist;
 
 	float radiusScaler;
-
+	
 	// Use this for initialization
 	void Start () 
 	{

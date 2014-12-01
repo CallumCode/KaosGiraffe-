@@ -8,8 +8,8 @@ public class Treeman : Enemy
 	void Start () 
 	{
 		damage = 5;
-		attacksRate = 2;
-		moveSpeed = 6; 
+		attacksRate = 1;
+		moveSpeed = 5; 
 		turnSpeed = 0.75f;
 		armourScaler = 0.1f;
 	}
@@ -20,3 +20,4 @@ public class Treeman : Enemy
 		Movement();
 	}
 }
+	

@@ -5,8 +5,8 @@ public class StatBar : MonoBehaviour
 {
  
  
-	float minScale = 0.01f;
-	float maxScale = 0.25f;
+	public	float minScale = 0.0f;
+	public	float maxScale = 0.25f;
 	// Use this for initialization
 	void Start () 
 	{

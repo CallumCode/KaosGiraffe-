@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class WaveMechanic : MonoBehaviour 
 {
@@ -25,16 +26,35 @@ public class WaveMechanic : MonoBehaviour
 	private float lastWaveTime = 0;
 
 	private int waveCount = 0;
+
+	
+	public GameObject WaveStatBarObject;
+	private StatBar WaveStatBarScript;
+
+	public GameObject WaveText;
+
 	// Use this for initialization
 	void Start ()
 	{
 		CreateAllWaves();
 
+		if(WaveStatBarObject != null)
+		{
+			WaveStatBarScript = WaveStatBarObject.GetComponent<StatBar>();
+		}
+
+		lastWaveTime = Time.time;
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
+		
+		// update stat wave
+		float t = (Time.time - lastWaveTime)  / timeBetweenWaves ;
+		t = 1 - Mathf.Clamp01(t);
+		
+		WaveStatBarScript.SetStat(t);
 
 		if (currentAttack == null)
 		{
@@ -73,7 +93,6 @@ public class WaveMechanic : MonoBehaviour
 
 			wave.Add(attack);
 		}
-
 		return wave;
 	}
 
@@ -128,7 +147,7 @@ public class WaveMechanic : MonoBehaviour
 	void SpawnTreeMan(AttackInfo attack)
 	{
 		float x = Mathf.Cos(attack.startAngle * Mathf.Deg2Rad) * radius;
-		float y = SwarmHeadPrefab.transform.position.y;
+		float y = TreeManPrefab.transform.position.y;
 		float z = Mathf.Sin(attack.startAngle * Mathf.Deg2Rad) * radius;
 		Vector3 pos = new Vector3(x, y, z);
 
@@ -177,6 +196,9 @@ public class WaveMechanic : MonoBehaviour
 			waveList.RemoveAt(0);
 			
 			waveCount++;
+			WaveText.GetComponent<Text>().text = "Wave " + waveCount;
+
+
 			Debug.Log("Wave " + waveCount);
 		}
 

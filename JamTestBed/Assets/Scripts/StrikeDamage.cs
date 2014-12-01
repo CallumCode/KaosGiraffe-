@@ -18,7 +18,7 @@ public class StrikeDamage : MonoBehaviour
 	 
 	}
 
-	void OnTriggerEnter(Collider collider)
+	void OnTriggerStay(Collider collider)
 	{
 
 		if (collider.CompareTag("Enemy")

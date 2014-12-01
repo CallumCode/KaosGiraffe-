@@ -11,9 +11,12 @@ public class IceWall : MonoBehaviour
 
 	public enum IceWallStageType {growing,idle, shrinking, dead};
 	public IceWallStageType iceWallStage = IceWallStageType.growing;
+
+
+	private Vector3 startPos = Vector3.zero;
 	void Start ()
 	{
-
+		startPos = transform.position;
  	}
 	
 	// Update is called once per frame
@@ -64,7 +67,7 @@ public class IceWall : MonoBehaviour
 	{
 		transform.Translate(Vector3.up * raiseSpeed * Time.deltaTime);
 	
-		if (transform.position.y > (transform.localScale.y * 0.5f))
+		if (transform.position.y > (startPos.y + transform.localScale.y  ))
 		{
 			iceWallStage = IceWallStageType.idle;
 			idleStartTime = Time.time;
@@ -75,7 +78,7 @@ public class IceWall : MonoBehaviour
 	{
 		transform.Translate(-Vector3.up * raiseSpeed * Time.deltaTime);
 
-		if (transform.position.y < (-transform.localScale.y * 0.5f ))
+		if (transform.position.y > (startPos.y  + transform.localScale.y))
 		{
 			iceWallStage = IceWallStageType.dead;			
 		}

@@ -54,7 +54,7 @@ public class Lightning : MonoBehaviour
 	private float sizeMod = 0;
 
 
-	public float maxTimeStriking = 10;
+	public float maxTimeStriking = 50;
 	private float timeStartStrike  = 0;
 	private float shrinkStartTime = 0;
 	public float maxShrinkTime = 5;
@@ -172,16 +172,18 @@ public class Lightning : MonoBehaviour
 			cloudMat = new Material(CloudShader);
 			cloudMat.color = cloudStart;
 		
-			float numParentCloud = Random.Range(minFirstSubClouds ,maxFirstSubClouds);
+			float numParentCloud =  Random.Range(minFirstSubClouds ,maxFirstSubClouds);
+
+			GameObject cloud = Instantiate(CloudPrefab, transform.position, transform.rotation) as GameObject;
+			cloud.transform.parent = cloudContainter.transform;
+			cloud.transform.localScale *= firstRadius;
+			cloud.renderer.material = cloudMat;
+			cloud.name = "StartCloud";
+
+
 			for (float parentCloud = 0; parentCloud < numParentCloud; parentCloud++)
 			{
-				GameObject cloud = Instantiate(CloudPrefab, transform.position, transform.rotation) as GameObject;
-				cloud.transform.parent = cloudContainter.transform;
-				cloud.transform.localScale *= firstRadius;
-				cloud.renderer.material = cloudMat;
-
 				AddSubClouds(cloud.transform.position, firstRadius, Random.Range(minSubCloudDepth,maxSubCloudDepth));
-
 			}
 
 			cloudStartTime = Time.time;
@@ -208,6 +210,7 @@ public class Lightning : MonoBehaviour
 			cloud.transform.parent = cloudContainter.transform;
 			cloud.transform.localScale *= Mathf.Clamp(newRadius, 0.01f , firstRadius);
 			cloud.renderer.material = cloudMat;
+			cloud.name = "SubCloud " + deapth;
 
 			AddSubClouds(pos, newRadius, deapth);
 		}

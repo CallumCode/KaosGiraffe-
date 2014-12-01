@@ -192,7 +192,7 @@ public class Player : MonoBehaviour
 
 	void SpawnLightning()
 	{
-		lightningStart = new Vector3(lightningStart.x, lightningHeight, lightningStart.z);
+		lightningStart = new Vector3(lightningStart.x, lightningStart.y +  lightningHeight, lightningStart.z);
 		currentLightning = Instantiate(LightningPrefab , lightningStart, Quaternion.identity) as GameObject;
  	}
 
@@ -242,18 +242,15 @@ public class Player : MonoBehaviour
 					CreateIceWall();
 					helpLine.enabled = false;	
 					IceWallStarted = false;
-				}
-
-
-
+				}	
 		}
 
 	}
 
 	void CreateIceWall()
 	{
-		IceWallEnd = new Vector3(IceWallEnd.x, -0.9f, IceWallEnd.z);
-		IceWallStart = new Vector3(IceWallStart.x, -0.9f, IceWallStart.z);
+		IceWallEnd = new Vector3(IceWallEnd.x, IceWallStart.y -  IceWallPrefab.transform.localScale.y *0.5f , IceWallEnd.z);
+		IceWallStart = new Vector3(IceWallStart.x, IceWallStart.y -  IceWallPrefab.transform.localScale.y*0.5f, IceWallStart.z);
 
 		Vector3 midPoint = IceWallStart + (IceWallEnd - IceWallStart) * 0.5f;
 
@@ -365,8 +362,7 @@ public class Player : MonoBehaviour
 	
 	void SpawnFireBall()
 	{
-		FireBallStart = new Vector3(FireBallStart.x,1, FireBallStart.z);
-		currentFireBall = Instantiate(FireBallPrefab, FireBallStart, Quaternion.identity) as GameObject;
+ 		currentFireBall = Instantiate(FireBallPrefab, FireBallStart, Quaternion.identity) as GameObject;
 		fireBallMass = 1;
 	}
 
@@ -382,7 +378,7 @@ public class Player : MonoBehaviour
 				currentFireBall.transform.localScale += new Vector3(1,1,1) * fireBallGrowthPerTick;
 				fireBallMass += fireBallMasPerTick;
 
-				currentFireBall.transform.position = new Vector3(FireBallStart.x, currentFireBall.transform.localScale.y*0.5f, FireBallStart.z);
+				currentFireBall.transform.position = new Vector3(FireBallStart.x, FireBallStart.y + currentFireBall.transform.localScale.y*0.5f, FireBallStart.z);
 
 			}
 
